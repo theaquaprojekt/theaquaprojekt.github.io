@@ -150,10 +150,22 @@ pwa:
 paginate: 10
 
 # The base URL of your site
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 875d0fce90ab25c7a8340a726721a6a1edcabbe3
 baseurl: "/aqua"
 
 # ------------ The following options are not recommended to be modified ------------------
 markdown: kramdown
+<<<<<<< HEAD
+=======
+=======
+baseurl: ""
+
+# ------------ The following options are not recommended to be modified ------------------
+>>>>>>> 9469f4cb2417aaa8d962a9e144f7127fc1fb670c
+>>>>>>> 875d0fce90ab25c7a8340a726721a6a1edcabbe3
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
