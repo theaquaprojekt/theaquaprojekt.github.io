@@ -1,0 +1,22 @@
+title: The Aqua Project
+description: A GitHub Pages site for automating experimental optics with sample efficient machine learning methods.
+remote_theme: pages-themes/midnight@v0.2.0
+markdown: kramdown
+baseurl: "/aqua"
+scss: assets/style.scss
+url: "https://arindam5aha.github.io/aqua"
+author:
+  name: "Arindam Saha"
+  email: "arindam.saha@anu.edu.au"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+kradown:
+  -  input: Kramdown
+  -  syntax_highlighter: coderay
+  -  syntax_highlighter_opts:
+  -  line_numbers: table
+  -  bold_every: 5
+exclude:
+  - README.md
