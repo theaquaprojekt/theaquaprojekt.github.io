@@ -3,7 +3,7 @@ description: A GitHub Pages site for automating experimental optics with sample 
 remote_theme: pages-themes/midnight@v0.2.0
 markdown: kramdown
 css: assets/style.css
-baseurl: ""
+baseurl: "/aqua"
 url: "https://arindam5aha.github.io/aqua"
 author:
   name: "Arindam Saha"
