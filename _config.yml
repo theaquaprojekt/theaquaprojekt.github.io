@@ -1,6 +1,6 @@
 title: Aqua GitHub Pages
 description: A GitHub Pages site for automating experimental optics with sample efficient machine learning methods.
-theme: jekyll-theme-midnight
+remote_theme: pages-themes/midnight@v0.2.0
 markdown: kramdown
 css: assets/style.css
 baseurl: ""
@@ -11,5 +11,6 @@ author:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
 exclude:
   - README.md
