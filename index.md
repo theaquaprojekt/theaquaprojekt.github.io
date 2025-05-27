@@ -83,13 +83,13 @@ def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
 - MEAN HUMAN MME: 0.9319114506522006
 - Std. Dev: 1.6788265680236416 %
 
-### SANN Optimisation on Experiment
+<!-- ### SANN Optimisation on Experiment
 
 ![png](Final_Plots_files/Final_Plots_23_0.png)
 
 Visualising best SANN results.
 
-![png](Final_Plots_files/Final_Plots_25_0.png)
+![png](Final_Plots_files/Final_Plots_25_0.png) -->
 
 ### Analyse AQUA Performance on Experiment
 
