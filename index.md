@@ -3,6 +3,9 @@
 **Paper Link:** [arXiv:2503.14260](https://arxiv.org/abs/2503.14260)  
 **For more information:** [GitHub Repository](https://github.com/arindam5aha/aqua)
 
+### Abstract
+As free-space optical systems grow in scale and complexity, troubleshooting becomes increasingly time-consuming and, in the case of remote installations, perhaps impractical. An example of a task that is often laborious is the alignment of a high-finesse optical resonator, which is highly sensitive to the mode of the input beam. In this work, we demonstrate how machine learning can be used to achieve autonomous mode-matching of a free-space optical resonator with minimal supervision. Our approach leverages sample-efficient algorithms to reduce data requirements while maintaining a simple architecture for easy deployment. The reinforcement learning scheme that we have developed shows that automation is feasible even in systems prone to drift in experimental parameters, as may well be the case in real-world applications.
+
 ### Visualising the Observation Space
 
 ### Visualising Different Hermite-Gauss Modes
@@ -79,9 +82,9 @@ def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
 
 ![png](Final_Plots_files/Final_Plots_19_0.png)
 
-- MAX HUMAN MME: 0.9565508021390374
-- MEAN HUMAN MME: 0.9319114506522006
-- Std. Dev: 1.6788265680236416 %
+- MAX HUMAN MME: 0.956
+- MEAN HUMAN MME: 0.932
+- Std. Dev: 1.68 %
 
 <!-- ### SANN Optimisation on Experiment
 
