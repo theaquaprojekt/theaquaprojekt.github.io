@@ -1,25 +1,36 @@
 @import "{{ site.theme }}";
 
-// $base-font-size: 1.6em;
-// $base-line-height: 1.5;
-// $base-font-family: "Open Sans", sans-serif;
-
-// footer {
-//     ul {
-//         list-style-type: none;
-//     }
-// }
-
-// .current {
-//     font-size: $base-font-size;
-//     font-weight: bold;
-//     color: $olivedrab;
-//   }
-
 section img {
   max-width: 100%;
 }
 
+/* Make main content use full width */
+body,
+.main-content,
+.wrapper,
+.page-content,
+.site-content,
+#main,
+#content {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Remove any box shadow or border if present */
+.main-content,
+.wrapper,
+.page-content,
+.site-content {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+// ...existing code...
 
 @media (max-width: 1080px) {
   .current {
