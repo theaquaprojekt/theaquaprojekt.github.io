@@ -1,5 +1,5 @@
 title: The Aqua Project
-description: Building a quantised utility agent for every experiment on the planet
+description: Building a generalist control agent for every experiment on the planet
 remote_theme: pages-themes/midnight@v0.2.0
 markdown: kramdown
 baseurl: "/aqua"
