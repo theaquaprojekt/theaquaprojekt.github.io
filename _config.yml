@@ -3,7 +3,7 @@ description: Building a generalist control agent for every experiment on the pla
 remote_theme: pages-themes/midnight@v0.2.0
 markdown: kramdown
 baseurl: "/aqua"
-scss: assets/style.scss
+css: assets/style.scss
 url: "https://arindam5aha.github.io/aqua"
 author:
   name: "Arindam Saha"
