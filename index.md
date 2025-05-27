@@ -14,10 +14,10 @@ These outputs are simulated.
 
 Analysing both transmission and reflection traces:
 
-- Top two peak positions: [1.41426484, 1.42037134]
+<!-- - Top two peak positions: [1.41426484, 1.42037134]
 - FWHM of the top two peaks: [4.375, 3.50930248]
 - Difference between top two peak positions: 504
-- Ratio of difference to FWHM: [115.2, 143.618284]
+- Ratio of difference to FWHM: [115.2, 143.618284] -->
 
 Finesses used for paper: 129.40914200074948
 
@@ -203,3 +203,62 @@ For more information on the simulation environment visit: [GW Optics](https://ww
 ![png](Final_Plots_files/Final_Plots_62_0.png)
 
 Reward Functions used in simulation, with additional penalties to account for the multi-step architecture of standard model-free RL.
+
+```python
+# THE BASE REWARD FUNCTION FOR AQUA THAT CALCULATES COST FROM A TRACE
+
+def reward(self, obs):        
+    pv, _ = find_peaks(self.best_obs.squeeze(), height=0)
+    pm = 15
+    p1 = np.trapz(obs[pv[0]-pm:pv[0]+pm].squeeze())
+    not_p1 = np.trapz(np.concatenate([obs[:pv[0]-pm], obs[pv[0]+pm:]]).squeeze()) * 0.3
+    obs_reward = ((p1 - not_p1) + 4.0)/10.0 
+    
+    # The constants are chosen such that the best reward is less than 1 (by choice, not a necessity)
+    return obs_reward
+    
+# THE REWARD FUNCTION FOR SB THAT USES THE AQUA REWARD 
+# WITH ADDITIONAL PENALTIES STEPS TAKEN AND BOUNDS CROSSED
+
+nc = reward(trace)
+
+def base_rwd(self, nc): 
+    # a static reward function   
+    t = self.accuracy * self.max_neg_cost
+    if nc >= t:
+        rwd = 1.5*(np.exp(10*(nc-t))-1.0)
+    else:
+        rwd = (1.0-1.0/nc) + t
+    return rwd
+
+def calculate_reward(self, neg_cost):
+    reward = 0
+    bounds_crossed = False
+
+    for i, p in enumerate(self.current_params):
+        if p >= self.u_bounds[i] or p <= self.l_bounds[i]:
+            bounds_crossed = True
+    if bounds_crossed:
+        reward -= 1
+
+    if self.steps > self.max_steps:
+        self.truncated = True
+
+    reward += self.base_rwd(neg_cost)
+
+    if neg_cost >= self.dynamic_accuracy * self.max_neg_cost:
+        reward += 10*neg_cost
+        self.success += 1
+        self.dynamic_accuracy += 0.01
+        if self.dynamic_accuracy >= 1.0:
+            self.dynamic_accuracy = 1.0
+        self.terminated = True
+
+    if self.rwd_type == 'push':
+        pass
+
+    return reward
+
+    # NOTE: IN BOTH CASES (AQUA & SB) THE OBSERVATION GIVEN IS SAME (TRACE + PARAMS)
+    #       AND THE BOUNDS USED ARE ALSO SAME
+```
