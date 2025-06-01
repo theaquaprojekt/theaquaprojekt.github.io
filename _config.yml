@@ -1,7 +1,6 @@
 title: The Aqua Project
 description: Building a generalist control agent for every experiment on the planet
 remote_theme: pages-themes/midnight@v0.2.0
-markdown: kramdown
 baseurl: "/aqua"
 css: assets/style.scss
 url: "https://arindam5aha.github.io/aqua"
@@ -15,7 +14,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-kradown:
+markdown:
   -  input: Kramdown
   -  math_engine: mathjax
   -  syntax_highlighter: coderay
