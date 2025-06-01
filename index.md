@@ -1,7 +1,7 @@
 ## Automating Experimental Optics with Sample Efficient Machine Learning Methods
 
 **Paper Link:** [arXiv:2503.14260](https://arxiv.org/abs/2503.14260)  
-**For more information:** [GitHub Repository](https://github.com/arindam5aha/aqua)
+**Contact:** arindam.saha@anu.edu.au
 
 ### Abstract
 As free-space optical systems grow in scale and complexity, troubleshooting becomes increasingly time-consuming and, in the case of remote installations, perhaps impractical. An example of a task that is often laborious is the alignment of a high-finesse optical resonator, which is highly sensitive to the mode of the input beam. In this work, we demonstrate how machine learning can be used to achieve autonomous mode-matching of a free-space optical resonator with minimal supervision. Our approach leverages sample-efficient algorithms to reduce data requirements while maintaining a simple architecture for easy deployment. The reinforcement learning scheme that we have developed shows that automation is feasible even in systems prone to drift in experimental parameters, as may well be the case in real-world applications.
@@ -36,7 +36,7 @@ For more info visit: [Thorlabs](https://www.thorlabs.com/navigation.cfm?guide_id
 | Mirror 2x   | (-5000, 5000)        |
 | Mirror 2y   | (-5000, 5000)        |
 
-### Reward Function Used in Experiment: $\eta$
+### Reward Function Used in Experiment: \(\eta\)
 
 This is the sole reward function used in the experiment for AQUA.
 
@@ -50,7 +50,7 @@ def noisy_eta(obs, target_region=(400, 550)):
     return eta
 ```
 
-### Corrected Reward Function: $\eta'$
+### Corrected Reward Function: \(\eta'\)
 
 Used to post-process all collected data and use for comparison.
 
@@ -69,9 +69,9 @@ def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
     return eta_prime
 ```
 
-### Linear Relation Between $\eta$ and $\eta'$
+### Linear Relation Between \(\eta\) and \(\eta'\)
 
-Each colored scatter plot corresponds to a separate runs, performed on different days. As shown in the plot below, each run yields a slightly different slope, indicating changes in experimental conditions. The observed deviations are primarily due to noise. Additionally, the detector offset shifts the x-axis, so $\eta$ does not reach zero.
+Each colored scatter plot corresponds to a separate runs, performed on different days. As shown in the plot below, each run yields a slightly different slope, indicating changes in experimental conditions. The observed deviations are primarily due to noise. Additionally, the detector offset shifts the x-axis, so \(\eta\) does not reach zero.
 
 <!-- - Slope: 1.79
 - Intercept: -0.12 -->
@@ -149,8 +149,8 @@ AQUA typically realigns the optical system in under a minute after a reset, requ
 <img src="Final_Plots_files/Final_Plots_33_0.png" width="400"/>
 
 - Avg time per step: 5.44 sec (bottlenecked by actuator speed)
-- Human $\eta'$ (max) : 95.66 %
-- Human $\eta'$ (mean) : 93.19 %
+- Human \(\eta'\) (max) : 95.66 %
+- Human \(\eta'\) (mean) : 93.19 %
 
 ### Scatter Plots of the Parameter Space
 The scatter plots below illustrate the distribution of actuator parameters explored during the experiment. Each point represents a unique configuration sampled by the learning algorithm, colored according to the corresponding reward value. These visualizations help reveal which regions of the parameter space yield optimal alignment and highlight the diversity of solutions discovered by AQUA. Clusters of high-reward points indicate effective parameter combinations, while broader distributions reflect the exploration strategy and robustness of the method.
@@ -162,7 +162,7 @@ The scatter plots below illustrate the distribution of actuator parameters explo
 ### AQUA: Reset Conditions
 
 All resets shown in the paper apply a parameter chosen randomly from the entire given bounds.  
-As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we visualise the associated observations and the parameters.
+As seen in AQUA's online learning plot, these mostly return \(\eta'=0\). Below we visualise the associated observations and the parameters.
 
 <img src="Final_Plots_files/Final_Plots_49_0.png" width="700"/>
 <img src="Final_Plots_files/Final_Plots_49_1.png" width="700"/>
