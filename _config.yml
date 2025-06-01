@@ -12,22 +12,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-kramdown:
+kradown:
   -  input: Kramdown
-  -  syntax_highlighter: coderay
   -  math_engine: mathjax
-  -  math_engine_opts: 
-      mathjax: 
-        macros: 
-          "\\R": "\\mathbb{R}"
-          "\\N": "\\mathbb{N}"
-          "\\Z": "\\mathbb{Z}"
-          "\\Q": "\\mathbb{Q}"
-          "\\C": "\\mathbb{C}"
-        display_math: true
-        preview: true
-        no_inline_math_dollars: true
-        no_mathjax: false
+  -  syntax_highlighter: coderay
   -  syntax_highlighter_opts: 
       coderay:
         line_numbers: true

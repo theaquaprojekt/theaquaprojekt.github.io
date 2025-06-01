@@ -254,3 +254,13 @@ def calculate_reward(self, neg_cost):
     # NOTE: IN BOTH CASES (AQUA & SB) THE OBSERVATION GIVEN IS SAME (TRACE + PARAMS)
     #       AND THE BOUNDS USED ARE ALSO SAME
 ```
+
+<!-- MathJax configuration for display equations -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']]
+  }
+});
+</script>
