@@ -8,38 +8,42 @@ As free-space optical systems grow in scale and complexity, troubleshooting beco
 
 <img src="Final_Plots_files/fig_2.svg" width="700"/>
 
+---
+
+ **Note:** This page provides supplementary information and extended results for the paper linked above. Readers are encouraged to refer to this document for additional experimental details, figures, and technical clarifications that complement the main manuscript.
+
+---
+
 ### Visualising the Observation Space
+The observation space consists of 1024-dimensional traces from the photodetector, capturing the transmitted intensity through the optical cavity. These high-resolution signals allow the learning algorithm to distinguish between different alignment states. The figure below shows randomly sampled observations, highlighting the diversity of signals during alignment.
 <img src="Final_Plots_files/random_obs.gif" width="700"/>
 
 ### Visualising Different Hermite-Gauss Modes
-These outputs are simulated.
+Simulated outputs below show different Hermite-Gauss modes as seen in the experiment. Each mode has a unique spatial profile, helping to interpret photodetector traces and guide alignment optimization.
 
 <img src="Final_Plots_files/Final_Plots_5_0.png" width="700"/>
 
 ### Control Specs
-
-Bounds for the optimization and control:  
-The values represent the thread counts moved by the actuators.  
+The bounds below specify the allowed range for each actuator, set by the physical and mechanical limits of the setup. They ensure safe operation and precise control of lens translation and mirror tip/tilt. Values are in actuator thread counts.
 For more info visit: [Thorlabs](https://www.thorlabs.com/navigation.cfm?guide_id=83)
 
-| Parameter   | Bounds                |
+| Parameter   | Bounds               |
 |-------------|----------------------|
-| Lens_1      | (-100000, 100000)    |
-| Lens_2      | (-100000, 100000)    |
-| Mirror_1x   | (-5000, 5000)        |
-| Mirror_1y   | (-5000, 5000)        |
-| Mirror_2x   | (-5000, 5000)        |
-| Mirror_2y   | (-5000, 5000)        |
+| Lens 1      | (-100000, 100000)    |
+| Lens 2      | (-100000, 100000)    |
+| Mirror 1x   | (-5000, 5000)        |
+| Mirror 1y   | (-5000, 5000)        |
+| Mirror 2x   | (-5000, 5000)        |
+| Mirror 2y   | (-5000, 5000)        |
 
 ### Reward Function Used in Experiment: $\eta$
 
-This is the sole reward function used in the experiment for both SANN and AQUA.
+This is the sole reward function used in the experiment for AQUA.
 
 ```python
 def noisy_eta(obs, target_region=(400, 550)):
     #input: obs - the observed cavity trace (array of length 1024)
     #target_region - the region of interest, including the target mode
-    
     target_integral = np.trapz(obs[target_region[0]:target_region[1]])
     complete_integral = np.trapz(obs)
     eta = target_integral / complete_integral
@@ -54,13 +58,10 @@ Used to post-process all collected data and use for comparison.
 def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
     # input: distance, prominence are parameters for the SciPy peak finding algorithm
     # these are to be kept constant for all data, unless additional corrections are needed.
-    
     # Correct for the detector offset
     obs = obs - np.median(obs)
-    
     # Find the peaks    
     peaks, _ = find_peaks(obs, distance=distance, prominence=prominence)    
-
     # Calculating the reward
     target_pk_height = max(obs[target_region[0]: target_region[1]])
     sum_pk_height = np.sum(obs[peaks])
@@ -68,16 +69,32 @@ def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
     return eta_prime
 ```
 
-## Results and Discussion
+### Linear Relation Between $\eta$ and $\eta'$
+
+Each colored scatter plot corresponds to a separate runs, performed on different days. As shown in the plot below, each run yields a slightly different slope, indicating changes in experimental conditions. The observed deviations are primarily due to noise. Additionally, the detector offset shifts the x-axis, so $\eta$ does not reach zero.
+
+<!-- - Slope: 1.79
+- Intercept: -0.12 -->
+
+<img src="Final_Plots_files/Final_Plots_36_1.png" width="400"/>
 
 ### Manual Alignment
-
+Manual alignment was performed by experienced operators using visual feedback from the photodetector traces. The process involved iterative adjustments of lens positions and mirror angles to maximize the transmission through the optical cavity. The resulting traces and reward statistics serve as a baseline for evaluating automated approaches. The figures below illustrate typical outcomes from manual alignment, showing both the best and average performance achieved by human operators.
 <img src="Final_Plots_files/Final_Plots_18_0.png" width="700"/>
 <img src="Final_Plots_files/Final_Plots_19_0.png" width="400"/>
 
 - MAX HUMAN MME: 0.956
 - MEAN HUMAN MME: 0.932
 - Std. Dev: 1.68 %
+
+### Thermal Drift
+Thermal drift causes fluctuations in the height and position of the transmission peak by inducing small misalignments as components expand or contract with temperature changes. These variations can degrade alignment quality, so tracking them is essential for assessing how well automated methods like AQUA maintain performance under changing conditions.
+
+<img src="Final_Plots_files/Final_Plots_38_1.png" width="600"/>
+
+### Actuator Drifts
+Actuator drifts refer to slow, unpredictable changes in actuator positions over time, often due to mechanical relaxation, temperature fluctuations, or electronic noise. The following plot illustrate the effect of executing a parameter on repeat 
+<img src="Final_Plots_files/Final_Plots_40_0.png" width="600"/>
 
 <!-- ### SANN Optimisation on Experiment
 
@@ -87,47 +104,10 @@ Visualising best SANN results.
 
 <img src="Final_Plots_files/Final_Plots_25_0.png" width="700"/> -->
 
-### Analyse AQUA Performance on Experiment
-The AQUA algorithm is designed to address the challenges of automating optical alignment in experimental setups, where manual tuning is often inefficient and susceptible to environmental drifts. By leveraging a sample-efficient reinforcement learning approach, AQUA can adapt to changing system dynamics and maintain optimal performance with fewer experimental trials. The method is particularly suited for scenarios where data collection is costly or time-consuming, such as in high-finesse optical resonators. The results below illustrate AQUA's ability to achieve and sustain high alignment quality, outperforming traditional manual methods and demonstrating robustness against typical sources of experimental noise and drift.
-<img src="Final_Plots_files/Final_Plots_31_0.png" width="700"/>
-
-<img src="Final_Plots_files/Final_Plots_33_0.png" width="400"/>
-
-- Avg time per step: 5.44 sec
-- Human $\eta'$ (max) : 95.66 %
-- Human $\eta'$ (mean) : 93.19 %
-
-### Supplementary Information
-
-### Linear Relation Between $\eta$ and $\eta'$
-
-Each colored scatter plot represents an individual SANN run. The runs occurred on different days and as can be seen from the plot below, each run gives a slightly different slope suggesting change in conditions. Deviations seen are caused by noise. The detector offset causes the x-axis to have an offset, meaning $\eta$ does not reach 0.
-
-- Slope: 1.79
-- Intercept: -0.12
-
-<img src="Final_Plots_files/Final_Plots_36_1.png" width="400"/>
-
-### Thermal Drift
-
-Fluctuations in target peak heights and its position.
-
-<img src="Final_Plots_files/Final_Plots_38_1.png" width="700"/>
-
-### Actuator Drifts
-
-<img src="Final_Plots_files/Final_Plots_40_0.png" width="500"/>
-
-### Scatter Plots of the Parameter Space
-
-<img src="Final_Plots_files/Final_Plots_43_0.png" width="700"/>
-
 ### AQUA: Model Specs
 
 - **Observation size:** 1024 (raw data, no offset correction; continuous)
 - **Action size:** 6 (full bounds as previously described; continuous)
-- **PyTorch version:** 2.1.2
-- **CUDA version:** 12.1
 - **Hidden sizes:** encoder: 64, prediction: 64, policy: 512
 - **Number of hidden layers:** 2
 - **Latent size:** 32
@@ -136,16 +116,46 @@ Fluctuations in target peak heights and its position.
   - encoder: 1024 + 6  
   - prediction: 1024 + 6  
   - policy: 32 + 6  
-    (6 for scaled parameters, optionally used with dropouts)
+    (6 for scaled parameters, used optionally with dropouts)
 - **Optimizer:** Adam
 - **Learning rate:** 0.0001
 - **Batch size:** encoder: 50, prediction: 50, policy: 200
 - **Gradient clipping:** 1.0
 - **Dropout:** 0.2
 - **Weights initializer:** kaiming_uniform
+- **PyTorch version:** 2.1.2
+- **CUDA version:** 12.1
 
 **Total trainable parameters:** 558,416  
 *(Latest version: 10x fewer parameters, improved generalization and training times)*
+
+### Analyse AQUA Performance on Experiment
+AQUA automates optical alignment using sample-efficient reinforcement learning, reducing the need for manual tuning and adapting to system drifts. It achieves high alignment quality with fewer trials, outperforming manual methods and remaining robust to noise and environmental changes.
+
+#### AQUA Deployment Details
+
+- **Max steps per episode:** 20  
+- **Retraining interval:** $\geq 20$ steps
+- **Reset protocol:** Actuators are randomly reset within bounds after each episode.
+
+These settings ensure fair comparison with manual alignment and highlight AQUA's ability to rapidly and reliably achieve high-quality optical alignment.
+
+<img src="Final_Plots_files/Final_Plots_31_0.png" width="700"/>
+
+#### Time Taken to Realign
+
+AQUA typically realigns the optical system in under a minute after a reset, requiring about 10 steps at 5.44 seconds per step. This is much faster and more consistent than manual alignment, minimizing downtime and enabling reliable, repeatable operation.
+
+<img src="Final_Plots_files/Final_Plots_33_0.png" width="400"/>
+
+- Avg time per step: 5.44 sec (bottlenecked by actuator speed)
+- Human $\eta'$ (max) : 95.66 %
+- Human $\eta'$ (mean) : 93.19 %
+
+### Scatter Plots of the Parameter Space
+The scatter plots below illustrate the distribution of actuator parameters explored during the experiment. Each point represents a unique configuration sampled by the learning algorithm, colored according to the corresponding reward value. These visualizations help reveal which regions of the parameter space yield optimal alignment and highlight the diversity of solutions discovered by AQUA. Clusters of high-reward points indicate effective parameter combinations, while broader distributions reflect the exploration strategy and robustness of the method.
+
+<img src="Final_Plots_files/Final_Plots_43_0.png" width="700"/>
 
 <!-- ### AQUA: Pre-training -->
 
@@ -158,6 +168,7 @@ As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we 
 <img src="Final_Plots_files/Final_Plots_49_1.png" width="700"/>
 
 ### AQUA: Realign Without Retraining
+AQUA models trained online can realign the optical system from random starting points without further retraining, consistently reaching high reward values. This demonstrates strong generalization and resilience to experimental drifts. The figures below show reward trajectories for several realignment episodes using the same trained model, with rapid and reliable convergence.
 
 <img src="Final_Plots_files/Final_Plots_51_0.png" width="700"/>
 
@@ -167,7 +178,7 @@ As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we 
 
 ### Cross Entropy Method (CEM) Sampling on Experiment
 
-CEM iteratively samples candidate solutions from a probability distribution, evaluates their performance, and updates the distribution to focus on the most promising regions of the parameter space. This method is particularly useful for optimization problems where the search space is large and gradients are unavailable or unreliable. In the context of optical alignment, CEM provides a baseline for comparison against more sophisticated reinforcement learning approaches like AQUA, highlighting the benefits of sample efficiency and adaptability in dynamic experimental environments.
+CEM iteratively samples candidate solutions from a probability distribution, evaluates their performance, and updates the distribution to focus on the most promising regions of the parameter space. This method is particularly useful for optimization problems where the search space is large and gradients are unavailable or unreliable. This provides an easy and effective method to sample the initial pre-train dataset required by AQUA.
 [DOI: 10.1023/A:1010091220143](https://doi.org/10.1023/A:1010091220143)
 
 <img src="Final_Plots_files/Final_Plots_55_0.png" width="700"/>
