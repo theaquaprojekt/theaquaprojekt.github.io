@@ -8,11 +8,14 @@ url: "https://arindam5aha.github.io/aqua"
 author:
   name: "Arindam Saha"
   email: "arindam.saha@anu.edu.au"
+relative_links:
+  enabled: true
+  collections: true
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-kramdown:
+kradown:
   -  input: Kramdown
   -  math_engine: mathjax
   -  syntax_highlighter: coderay
