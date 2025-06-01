@@ -14,22 +14,22 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-markdown:
-  -  input: Kramdown
-  -  math_engine: mathjax
-  -  syntax_highlighter: coderay
-  -  syntax_highlighter_opts: 
-      coderay:
-        line_numbers: true
-        line_number_start: 1
-        wrap: span
-        css: class
-        tab_width: 2
-        coderay_wrap: span
-        coderay_line_numbers: true
-        coderay_line_number_start: 1
-        coderay_tab_width: 2
-  -  line_numbers: table
-  -  bold_every: 5
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+    coderay:
+      line_numbers: true
+      line_number_start: 1
+      wrap: span
+      css: class
+      tab_width: 2
+      coderay_wrap: span
+      coderay_line_numbers: true
+      coderay_line_number_start: 1
+      coderay_tab_width: 2
+  line_numbers: table
+  bold_every: 5
 exclude:
   - README.md
