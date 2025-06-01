@@ -12,11 +12,12 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-kradown:
-  -  input: Kramdown
-  -  syntax_highlighter: coderay
-  -  syntax_highlighter_opts:
-  -  line_numbers: table
-  -  bold_every: 5
+kramdown:
+  input: Kramdown
+  math_engine: mathjax
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+    line_numbers: table
+    bold_every: 5
 exclude:
   - README.md
