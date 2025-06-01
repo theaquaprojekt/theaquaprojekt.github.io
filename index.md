@@ -6,25 +6,15 @@
 ### Abstract
 As free-space optical systems grow in scale and complexity, troubleshooting becomes increasingly time-consuming and, in the case of remote installations, perhaps impractical. An example of a task that is often laborious is the alignment of a high-finesse optical resonator, which is highly sensitive to the mode of the input beam. In this work, we demonstrate how machine learning can be used to achieve autonomous mode-matching of a free-space optical resonator with minimal supervision. Our approach leverages sample-efficient algorithms to reduce data requirements while maintaining a simple architecture for easy deployment. The reinforcement learning scheme that we have developed shows that automation is feasible even in systems prone to drift in experimental parameters, as may well be the case in real-world applications.
 
-![svg](Final_Plots_files/fig_2.svg)
+<img src="Final_Plots_files/fig_2.svg" width="700"/>
 
 ### Visualising the Observation Space
+<img src="Final_Plots_files/random_obs.gif" width="700"/>
 
 ### Visualising Different Hermite-Gauss Modes
 These outputs are simulated.
 
-![png](Final_Plots_files/Final_Plots_5_0.png)
-
-### Calculating Finesse from Full FSR Trace
-
-Analysing both transmission and reflection traces:
-
-<!-- - Top two peak positions: [1.41426484, 1.42037134]
-- FWHM of the top two peaks: [4.375, 3.50930248]
-- Difference between top two peak positions: 504
-- Ratio of difference to FWHM: [115.2, 143.618284] -->
-
-Finesses used for paper: 129.40914200074948
+<img src="Final_Plots_files/Final_Plots_5_0.png" width="700"/>
 
 ### Control Specs
 
@@ -32,12 +22,14 @@ Bounds for the optimization and control:
 The values represent the thread counts moved by the actuators.  
 For more info visit: [Thorlabs](https://www.thorlabs.com/navigation.cfm?guide_id=83)
 
-- Lens_1: (-100000, 100000)
-- Lens_2: (-100000, 100000)
-- Mirror_1x: (-5000, 5000)
-- Mirror_1y: (-5000, 5000)
-- Mirror_2x: (-5000, 5000)
-- Mirror_2y: (-5000, 5000)
+| Parameter   | Bounds                |
+|-------------|----------------------|
+| Lens_1      | (-100000, 100000)    |
+| Lens_2      | (-100000, 100000)    |
+| Mirror_1x   | (-5000, 5000)        |
+| Mirror_1y   | (-5000, 5000)        |
+| Mirror_2x   | (-5000, 5000)        |
+| Mirror_2y   | (-5000, 5000)        |
 
 ### Reward Function Used in Experiment: $\eta$
 
@@ -80,9 +72,8 @@ def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
 
 ### Manual Alignment
 
-![png](Final_Plots_files/Final_Plots_18_0.png)
-
-![png](Final_Plots_files/Final_Plots_19_0.png)
+<img src="Final_Plots_files/Final_Plots_18_0.png" width="700"/>
+<img src="Final_Plots_files/Final_Plots_19_0.png" width="400"/>
 
 - MAX HUMAN MME: 0.956
 - MEAN HUMAN MME: 0.932
@@ -90,26 +81,21 @@ def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
 
 <!-- ### SANN Optimisation on Experiment
 
-![png](Final_Plots_files/Final_Plots_23_0.png)
+<img src="Final_Plots_files/Final_Plots_23_0.png" width="700"/>
 
 Visualising best SANN results.
 
-![png](Final_Plots_files/Final_Plots_25_0.png) -->
+<img src="Final_Plots_files/Final_Plots_25_0.png" width="700"/> -->
 
 ### Analyse AQUA Performance on Experiment
+The AQUA algorithm is designed to address the challenges of automating optical alignment in experimental setups, where manual tuning is often inefficient and susceptible to environmental drifts. By leveraging a sample-efficient reinforcement learning approach, AQUA can adapt to changing system dynamics and maintain optimal performance with fewer experimental trials. The method is particularly suited for scenarios where data collection is costly or time-consuming, such as in high-finesse optical resonators. The results below illustrate AQUA's ability to achieve and sustain high alignment quality, outperforming traditional manual methods and demonstrating robustness against typical sources of experimental noise and drift.
+<img src="Final_Plots_files/Final_Plots_31_0.png" width="700"/>
 
-Loading run with resets.
+<img src="Final_Plots_files/Final_Plots_33_0.png" width="400"/>
 
-Loading No Reset Run.
-
-![png](Final_Plots_files/Final_Plots_31_0.png)
-
-- Avg time per step: 5.435340497249661
-
-![png](Final_Plots_files/Final_Plots_33_0.png)
-
-- MAX HUMAN MME: 95.66 %
-- MEAN HUMAN MME: 93.19 %
+- Avg time per step: 5.44 sec
+- Human $\eta'$ (max) : 95.66 %
+- Human $\eta'$ (mean) : 93.19 %
 
 ### Supplementary Information
 
@@ -117,85 +103,79 @@ Loading No Reset Run.
 
 Each colored scatter plot represents an individual SANN run. The runs occurred on different days and as can be seen from the plot below, each run gives a slightly different slope suggesting change in conditions. Deviations seen are caused by noise. The detector offset causes the x-axis to have an offset, meaning $\eta$ does not reach 0.
 
-- Slope: 1.78561321556722
-- Intercept: -0.11827958713759489
+- Slope: 1.79
+- Intercept: -0.12
 
-![png](Final_Plots_files/Final_Plots_36_1.png)
+<img src="Final_Plots_files/Final_Plots_36_1.png" width="400"/>
 
 ### Thermal Drift
 
 Fluctuations in target peak heights and its position.
 
-- Best Cost Height: 1.7208110246574506
-- Best Cost: 0.6379340335853348
-- Transmittance: 1.7256962227402255
-
-![png](Final_Plots_files/Final_Plots_38_1.png)
+<img src="Final_Plots_files/Final_Plots_38_1.png" width="700"/>
 
 ### Actuator Drifts
 
-![png](Final_Plots_files/Final_Plots_40_0.png)
+<img src="Final_Plots_files/Final_Plots_40_0.png" width="500"/>
 
 ### Scatter Plots of the Parameter Space
 
-![png](Final_Plots_files/Final_Plots_43_0.png)
+<img src="Final_Plots_files/Final_Plots_43_0.png" width="700"/>
 
 ### AQUA: Model Specs
 
-- Observation size: 1024, raw data as shown above without offset corrections is used (continuous)
-- Action size: 6, uses the full bounds as mentioned previously (continuous)
+- **Observation size:** 1024 (raw data, no offset correction; continuous)
+- **Action size:** 6 (full bounds as previously described; continuous)
+- **PyTorch version:** 2.1.2
+- **CUDA version:** 12.1
+- **Hidden sizes:** encoder: 64, prediction: 64, policy: 512
+- **Number of hidden layers:** 2
+- **Latent size:** 32
+- **Activation:** leakyReLU
+- **Input sizes:**  
+  - encoder: 1024 + 6  
+  - prediction: 1024 + 6  
+  - policy: 32 + 6  
+    (6 for scaled parameters, optionally used with dropouts)
+- **Optimizer:** Adam
+- **Learning rate:** 0.0001
+- **Batch size:** encoder: 50, prediction: 50, policy: 200
+- **Gradient clipping:** 1.0
+- **Dropout:** 0.2
+- **Weights initializer:** kaiming_uniform
 
-Models config:
-- Compatible with PyTorch version: 2.1.2
-- CUDA version: 12.1
-- [PyTorch](https://pytorch.org/)
+**Total trainable parameters:** 558,416  
+*(Latest version: 10x fewer parameters, improved generalization and training times)*
 
-- hidden_size: {'encoder': 64, 'prediction': 64, 'policy': 512}
-- num_hidden_layers: 2
-- latent_size: 32
-- activation: leakyRelu
-- input_sizes: {'encoder': '1024 + (6)', 'prediction': '1024 + (6)', 'policy': '32 + (6)'} // (6) for scaled parameters optional or used with dropouts
-- optimiser: Adam
-- lr: 0.0001
-- batch_size: {'encoder': 50, 'prediction': 50, 'policy': 200}
-- clip_grad_norm: 1.0
-- dropout: 0.2
-- weights_initializer: kaiming_uniform
-
-Total no. of trainable parameters in the models: 558416  
-(The latest version has 10x less parameters and much improved generalisation and training times)
-
-### AQUA: Pre-training
+<!-- ### AQUA: Pre-training -->
 
 ### AQUA: Reset Conditions
 
 All resets shown in the paper apply a parameter chosen randomly from the entire given bounds.  
 As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we visualise the associated observations and the parameters.
 
-![png](Final_Plots_files/Final_Plots_49_0.png)
-
-![png](Final_Plots_files/Final_Plots_49_1.png)
+<img src="Final_Plots_files/Final_Plots_49_0.png" width="700"/>
+<img src="Final_Plots_files/Final_Plots_49_1.png" width="700"/>
 
 ### AQUA: Realign Without Retraining
 
-![png](Final_Plots_files/Final_Plots_51_0.png)
+<img src="Final_Plots_files/Final_Plots_51_0.png" width="700"/>
 
 ### AQUA: Visualising Top 5% Rewarded Observations
 
-![png](Final_Plots_files/Final_Plots_53_0.png)
+<img src="Final_Plots_files/Final_Plots_53_0.png" width="700"/>
 
 ### Cross Entropy Method (CEM) Sampling on Experiment
 
-CEM is a pseudo-random importance sampling method.  
+CEM iteratively samples candidate solutions from a probability distribution, evaluates their performance, and updates the distribution to focus on the most promising regions of the parameter space. This method is particularly useful for optimization problems where the search space is large and gradients are unavailable or unreliable. In the context of optical alignment, CEM provides a baseline for comparison against more sophisticated reinforcement learning approaches like AQUA, highlighting the benefits of sample efficiency and adaptability in dynamic experimental environments.
 [DOI: 10.1023/A:1010091220143](https://doi.org/10.1023/A:1010091220143)
 
-![png](Final_Plots_files/Final_Plots_55_0.png)
-
-![png](Final_Plots_files/Final_Plots_56_0.png)
+<img src="Final_Plots_files/Final_Plots_55_0.png" width="700"/>
+<img src="Final_Plots_files/Final_Plots_56_0.png" width="700"/>
 
 As can be seen here, the reward landscape is different, given different configurations of the optics.
 
-![png](Final_Plots_files/Final_Plots_57_1.png)
+<img src="Final_Plots_files/Final_Plots_57_1.png" width="700"/>
 
 ### Compare AQUA with Standard Model-Free RL (Stable Baselines) in Cavity Simulation
 
@@ -205,12 +185,12 @@ For more information on the simulation environment visit: [GW Optics](https://ww
 [Stable Baselines](https://stable-baselines.readthedocs.io/en/master/)  
 [OpenAI Gym](https://www.gymlibrary.dev/)
 
-![png](Final_Plots_files/Final_Plots_62_0.png)
+<img src="Final_Plots_files/Final_Plots_62_0.png" width="700"/>
 
 Reward Functions used in simulation, with additional penalties to account for the multi-step architecture of standard model-free RL.
 
 ```python
-# THE BASE REWARD FUNCTION FOR AQUA THAT CALCULATES COST FROM A TRACE
+# THE REWARD FUNCTION FOR AQUA THAT CALCULATES COST FROM A TRACE
 
 def reward(self, obs):        
     pv, _ = find_peaks(self.best_obs.squeeze(), height=0)
@@ -225,10 +205,9 @@ def reward(self, obs):
 # THE REWARD FUNCTION FOR SB THAT USES THE AQUA REWARD 
 # WITH ADDITIONAL PENALTIES STEPS TAKEN AND BOUNDS CROSSED
 
-nc = reward(trace)
-
-def base_rwd(self, nc): 
+def base_rwd(self, obs):
     # a static reward function   
+    nc = reward(obs) 
     t = self.accuracy * self.max_neg_cost
     if nc >= t:
         rwd = 1.5*(np.exp(10*(nc-t))-1.0)
@@ -258,9 +237,6 @@ def calculate_reward(self, neg_cost):
         if self.dynamic_accuracy >= 1.0:
             self.dynamic_accuracy = 1.0
         self.terminated = True
-
-    if self.rwd_type == 'push':
-        pass
 
     return reward
 
