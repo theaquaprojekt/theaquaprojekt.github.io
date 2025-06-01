@@ -36,7 +36,7 @@ For more info visit: [Thorlabs](https://www.thorlabs.com/navigation.cfm?guide_id
 | Mirror 2x   | (-5000, 5000)        |
 | Mirror 2y   | (-5000, 5000)        |
 
-### Reward Function Used in Experiment: \(\eta\)
+### Reward Function Used in Experiment: \eta
 
 This is the sole reward function used in the experiment for AQUA.
 
