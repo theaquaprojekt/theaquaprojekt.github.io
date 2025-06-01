@@ -12,7 +12,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
-kradown:
+kramdown:
   -  input: Kramdown
   -  math_engine: mathjax
   -  syntax_highlighter: coderay
