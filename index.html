@@ -17,156 +17,8 @@
         };
     </script>
     
-    <!-- Custom CSS -->
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-        }
-        
-        h1, h2, h3, h4 {
-            color: #2c3e50;
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-        
-        h1 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        
-        h3 {
-            border-bottom: 1px solid #ecf0f1;
-            padding-bottom: 5px;
-        }
-        
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }
-        
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            padding: 16px;
-            overflow: auto;
-            font-size: 14px;
-        }
-        
-        code {
-            background-color: #f3f4f6;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-        }
-        
-        .highlight {
-            background-color: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .paper-links {
-            background-color: #e8f4fd;
-            border-left: 4px solid #3498db;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        
-        .paper-links a {
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .paper-links a:hover {
-            text-decoration: underline;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Show broken image indicator */
-        img:not([src]), img[src=""] {
-            border: 2px dashed #ccc;
-            background: #f0f0f0;
-            color: #666;
-            text-align: center;
-            padding: 20px;
-        }
-
-        img[alt]:after {
-            content: attr(alt);
-            display: block;
-            position: absolute;
-            z-index: 2;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-        }
-        
-        ul, ol {
-            margin: 10px 0;
-            padding-left: 30px;
-        }
-        
-        li {
-            margin: 5px 0;
-        }
-        
-        hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, #3498db, #ecf0f1);
-            margin: 40px 0;
-        }
-        
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .spec-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .spec-item strong {
-            color: #2c3e50;
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -450,7 +302,7 @@ def calculate_reward(self, neg_cost):
 
 <hr>
 
-<footer style="text-align: center; margin-top: 50px; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+<footer>
     <p><strong>Contact:</strong> <a href="mailto:arindam.saha@anu.edu.au">arindam.saha@anu.edu.au</a></p>
     <p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2503.14260" target="_blank">arXiv:2503.14260</a></p>
 </footer>
