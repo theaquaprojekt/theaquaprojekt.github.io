@@ -1,5 +1,5 @@
-title: "Automating Experimental Optics with Sample Efficient Machine Learning Methods"
-description: "Sample-efficient machine learning methods for autonomous optical resonator alignment using reinforcement learning"
+title: "The Aqua Project"
+description: "Building a generalist control agent for every experiment on the planet"
 remote_theme: pages-themes/midnight@v0.2.0
 baseurl: "/aqua"
 url: "https://arindam5aha.github.io"
