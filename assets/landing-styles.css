@@ -70,11 +70,11 @@ body {
     line-height: 1.6;
 }
 
-/* Main Grid Layout */
-.main-grid {
+/* Two Column Grid */
+.two-column-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     margin-bottom: 3rem;
 }
 
@@ -94,20 +94,20 @@ body {
     transform: translateY(0);
 }
 
-.project-header {
+.column-header {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid rgba(52, 152, 219, 0.2);
 }
 
-.project-header h3 {
+.column-header h3 {
     color: var(--accent-blue-light);
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
-.project-header p {
+.column-header p {
     color: var(--text-muted);
     font-size: 0.9rem;
 }
@@ -116,6 +116,7 @@ body {
 .project-link {
     display: block;
     text-decoration: none;
+    margin-bottom: 2rem;
 }
 
 .project-card {
@@ -133,14 +134,14 @@ body {
     box-shadow: var(--shadow-glow), 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
-.project-image {
+.hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
 }
 
-.project-card:hover .project-image {
+.project-card:hover .hero-image {
     transform: scale(1.1);
 }
 
@@ -177,7 +178,7 @@ body {
     transform: translateY(0);
 }
 
-.overlay-content h4 {
+.overlay-content h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
     color: white;
@@ -206,39 +207,12 @@ body {
     transform: scale(1.05);
 }
 
-/* Info Column */
-.info-column {
-    background: var(--secondary-bg);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(52, 152, 219, 0.1);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.info-column.slide-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.column-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgba(52, 152, 219, 0.2);
-}
-
-.column-header h3 {
-    color: var(--accent-blue-light);
-    font-size: 1.3rem;
-}
-
-/* Info Cards Grid */
-.info-cards-grid {
+/* Info Grid */
+.info-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .info-card {
@@ -272,13 +246,26 @@ body {
     font-size: 0.9rem;
 }
 
-.abstract-card {
-    grid-column: 1;
+/* Abstract Preview */
+.abstract-preview {
+    background: var(--tertiary-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 152, 219, 0.15);
+    margin-top: 1rem;
 }
 
-.abstract-card p {
-    line-height: 1.5;
+.abstract-preview h3 {
+    color: var(--accent-blue-light);
     margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.abstract-preview p {
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 /* Links */
@@ -293,28 +280,6 @@ body {
 .external-link:hover, .read-more:hover {
     color: var(--accent-blue-light);
     transform: translateX(3px);
-}
-
-.link-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.quick-link {
-    color: var(--accent-blue);
-    text-decoration: none;
-    padding: 0.5rem;
-    border: 1px solid rgba(52, 152, 219, 0.3);
-    border-radius: 8px;
-    text-align: center;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.quick-link:hover {
-    background: rgba(52, 152, 219, 0.1);
-    border-color: var(--accent-blue);
 }
 
 /* Footer */
@@ -340,28 +305,15 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .main-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-    }
-    
-    .info-column {
-        grid-column: 1 / -1;
-    }
-
-    .info-cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .two-column-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
 @media (max-width: 768px) {
     .landing-container {
         padding: 1rem;
-    }
-    
-    .main-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
     }
     
     .header-section h1 {
@@ -375,8 +327,8 @@ body {
     .project-card {
         height: 250px;
     }
-
-    .info-cards-grid {
-        grid-template-columns: 1fr;
+    
+    .project-column {
+        padding: 1.5rem;
     }
 }
