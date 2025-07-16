@@ -1,35 +1,131 @@
-title: The Aqua Project
-description: Building a generalist control agent for every experiment on the planet
+title: "Automating Experimental Optics with Sample Efficient Machine Learning Methods"
+description: "Sample-efficient machine learning methods for autonomous optical resonator alignment using reinforcement learning"
 remote_theme: pages-themes/midnight@v0.2.0
 baseurl: "/aqua"
-css: assets/style.scss
-url: "https://arindam5aha.github.io/aqua"
+url: "https://arindam5aha.github.io"
+
+# Author information
 author:
   name: "Arindam Saha"
   email: "arindam.saha@anu.edu.au"
+  affiliation: "Australian National University"
+
+# GitHub Pages settings
+github:
+  repository_url: "https://github.com/arindam5aha/aqua"
+
+# Social links
+social:
+  arxiv: "https://arxiv.org/abs/2503.14260"
+  email: "arindam.saha@anu.edu.au"
+
+# Navigation (if using Jekyll themes)
+nav_links:
+  - title: "Paper"
+    url: "https://arxiv.org/abs/2503.14260"
+    external: true
+  - title: "GitHub"
+    url: "https://github.com/arindam5aha/aqua"
+    external: true
+  - title: "Contact"
+    url: "mailto:arindam.saha@anu.edu.au"
+    external: true
+
+# Jekyll settings
 relative_links:
   enabled: true
   collections: true
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-remote-theme
+  - jekyll-sitemap
+
+# Markdown settings
 markdown: kramdown
 kramdown:
   math_engine: mathjax
-  syntax_highlighter: coderay
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
-    coderay:
-      line_numbers: true
-      line_number_start: 1
-      wrap: span
-      css: class
-      tab_width: 2
-      coderay_wrap: span
-      coderay_line_numbers: true
-      coderay_line_number_start: 1
-      coderay_tab_width: 2
-  line_numbers: table
-  bold_every: 5
+    line_numbers: true
+    tab_width: 2
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# MathJax settings
+mathjax:
+  source: https://polyfill.io/v3/polyfill.min.js?features=es6
+  config: 'MathJax.Hub.Config({ tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [["$$","$$"],["\\[","\\]"]] } });'
+
+# SEO settings
+lang: en-US
+keywords: 
+  - "machine learning"
+  - "experimental optics"
+  - "reinforcement learning"
+  - "optical alignment"
+  - "sample efficiency"
+  - "AQUA"
+  - "automation"
+
+# File handling
+include:
+  - _pages
+  - Final_Plots_files
+  - assets
+
 exclude:
   - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - .git
+  - .github
+
+# Collections (if you want to organize content)
+collections:
+  results:
+    output: true
+    permalink: /:collection/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      author: "Arindam Saha"
+  - scope:
+      path: "Final_Plots_files"
+    values:
+      image: true
+
+# GitHub Pages specific settings
+github_pages:
+  incremental: false
+  
+# Liquid settings
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Sass settings (if using custom CSS)
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Timezone
+timezone: Australia/Canberra
