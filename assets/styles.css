@@ -42,6 +42,62 @@ body {
     letter-spacing: 0.3px;
 }
 
+/* Top Navigation Styles */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.top-nav h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--accent-blue-light);
+}
+
+.back-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--accent-blue-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: var(--tertiary-bg);
+    color: var(--accent-blue-light);
+}
+
+.content-wrapper {
+    margin-top: 80px; /* Account for fixed nav */
+    padding: 2rem;
+}
+
 /* Enhanced Typography */
 h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
