@@ -42,51 +42,62 @@
     </div>
 
     <h3>Abstract</h3>
-<p>As free-space optical systems grow in scale and complexity, troubleshooting becomes increasingly time-consuming and, in the case of remote installations, perhaps impractical. An example of a task that is often laborious is the alignment of a high-finesse optical resonator, which is highly sensitive to the mode of the input beam. In this work, we demonstrate how machine learning can be used to achieve autonomous mode-matching of a free-space optical resonator with minimal supervision. Our approach leverages sample-efficient algorithms to reduce data requirements while maintaining a simple architecture for easy deployment. The reinforcement learning scheme that we have developed shows that automation is feasible even in systems prone to drift in experimental parameters, as may well be the case in real-world applications.</p>
+    <p>As free-space optical systems grow in scale and complexity, troubleshooting becomes increasingly time-consuming and, in the case of remote installations, perhaps impractical. An example of a task that is often laborious is the alignment of a high-finesse optical resonator, which is highly sensitive to the mode of the input beam. In this work, we demonstrate how machine learning can be used to achieve autonomous mode-matching of a free-space optical resonator with minimal supervision. Our approach leverages sample-efficient algorithms to reduce data requirements while maintaining a simple architecture for easy deployment. The reinforcement learning scheme that we have developed shows that automation is feasible even in systems prone to drift in experimental parameters, as may well be the case in real-world applications.</p>
 
-<img src="Final_Plots_files/fig_2.svg" width="700" alt="Experimental Setup">
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/fig_2.svg" alt="Experimental Setup">
+        <div class="image-caption">Experimental Setup: Complete optical cavity alignment system with automated control</div>
+    </div>
 
-<hr>
+    <hr>
 
-<div class="highlight">
-    <strong>Note:</strong> This page provides supplementary information and extended results for the paper linked above. Readers are encouraged to refer to this document for additional experimental details, figures, and technical clarifications that complement the main manuscript.
-</div>
+    <div class="highlight">
+        <strong>Note:</strong> This page provides supplementary information and extended results for the paper linked above. Readers are encouraged to refer to this document for additional experimental details, figures, and technical clarifications that complement the main manuscript.
+    </div>
 
-<hr>
+    <hr>
 
-<h3>Visualising the Observation Space</h3>
-<p>The observation space consists of 1024-dimensional traces from the photodetector, capturing the transmitted intensity through the optical cavity. These high-resolution signals allow the learning algorithm to distinguish between different alignment states. The figure below shows randomly sampled observations, highlighting the diversity of signals during alignment.</p>
-<img src="Final_Plots_files/random_obs.gif" width="700" alt="Random Observations">
+    <h3>Visualising the Observation Space</h3>
+    <p>The observation space consists of 1024-dimensional traces from the photodetector, capturing the transmitted intensity through the optical cavity. These high-resolution signals allow the learning algorithm to distinguish between different alignment states. The figure below shows randomly sampled observations, highlighting the diversity of signals during alignment.</p>
+    
+    <div class="image-container large-image">
+        <img src="Final_Plots_files/random_obs.gif" alt="Random Observations">
+        <div class="image-caption">Random sampling of photodetector traces during cavity alignment process</div>
+    </div>
 
-<h3>Visualising Different Hermite-Gauss Modes</h3>
-<p>Simulated outputs below show different Hermite-Gauss modes as seen in the experiment. Each mode has a unique spatial profile, helping to interpret photodetector traces and guide alignment optimization.</p>
-<img src="Final_Plots_files/Final_Plots_5_0.png" width="700" alt="Hermite-Gauss Modes">
+    <h3>Visualising Different Hermite-Gauss Modes</h3>
+    <p>Simulated outputs below show different Hermite-Gauss modes as seen in the experiment. Each mode has a unique spatial profile, helping to interpret photodetector traces and guide alignment optimization.</p>
+    
+    <div class="image-container large-image">
+        <img src="Final_Plots_files/Final_Plots_5_0.png" alt="Hermite-Gauss Modes">
+        <div class="image-caption">Spatial profiles of different Hermite-Gauss modes in optical cavity</div>
+    </div>
 
-<h3>Control Specs</h3>
-<p>The bounds below specify the allowed range for each actuator, set by the physical and mechanical limits of the setup. They ensure safe operation and precise control of lens translation and mirror tip/tilt. Values are in actuator thread counts.<br>
-For more info visit: <a href="https://www.thorlabs.com/navigation.cfm?guide_id=83" target="_blank">Thorlabs</a></p>
+    <h3>Control Specs</h3>
+    <p>The bounds below specify the allowed range for each actuator, set by the physical and mechanical limits of the setup. They ensure safe operation and precise control of lens translation and mirror tip/tilt. Values are in actuator thread counts.<br>
+    For more info visit: <a href="https://www.thorlabs.com/navigation.cfm?guide_id=83" target="_blank">Thorlabs</a></p>
 
-<table>
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Bounds</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td>Lens 1</td><td>(-100000, 100000)</td></tr>
-        <tr><td>Lens 2</td><td>(-100000, 100000)</td></tr>
-        <tr><td>Mirror 1x</td><td>(-5000, 5000)</td></tr>
-        <tr><td>Mirror 1y</td><td>(-5000, 5000)</td></tr>
-        <tr><td>Mirror 2x</td><td>(-5000, 5000)</td></tr>
-        <tr><td>Mirror 2y</td><td>(-5000, 5000)</td></tr>
-    </tbody>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Bounds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Lens 1</td><td>(-100000, 100000)</td></tr>
+            <tr><td>Lens 2</td><td>(-100000, 100000)</td></tr>
+            <tr><td>Mirror 1x</td><td>(-5000, 5000)</td></tr>
+            <tr><td>Mirror 1y</td><td>(-5000, 5000)</td></tr>
+            <tr><td>Mirror 2x</td><td>(-5000, 5000)</td></tr>
+            <tr><td>Mirror 2y</td><td>(-5000, 5000)</td></tr>
+        </tbody>
+    </table>
 
-<h3>Reward Function Used in Experiment: $\eta$</h3>
-<p>This is the sole reward function used in the experiment for AQUA.</p>
+    <h3>Reward Function Used in Experiment: $\eta$</h3>
+    <p>This is the sole reward function used in the experiment for AQUA.</p>
 
-<pre><code class="language-python">def noisy_eta(obs, target_region=(400, 550)):
+    <pre><code class="language-python">def noisy_eta(obs, target_region=(400, 550)):
     #input: obs - the observed cavity trace (array of length 1024)
     #target_region - the region of interest, including the target mode
     target_integral = np.trapz(obs[target_region[0]:target_region[1]])
@@ -94,10 +105,10 @@ For more info visit: <a href="https://www.thorlabs.com/navigation.cfm?guide_id=8
     eta = target_integral / complete_integral
     return eta</code></pre>
 
-<h3>Corrected Reward Function: $\eta'$</h3>
-<p>Used to post-process all collected data and use for comparison.</p>
+    <h3>Corrected Reward Function: $\eta'$</h3>
+    <p>Used to post-process all collected data and use for comparison.</p>
 
-<pre><code class="language-python">def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
+    <pre><code class="language-python">def corrected_eta(obs, distance=5, prominence=5e-3, target_region=(400, 550)):
     # input: distance, prominence are parameters for the SciPy peak finding algorithm
     # these are to be kept constant for all data, unless additional corrections are needed.
     # Correct for the detector offset
@@ -110,156 +121,213 @@ For more info visit: <a href="https://www.thorlabs.com/navigation.cfm?guide_id=8
     eta_prime = target_pk_height / sum_pk_height
     return eta_prime</code></pre>
 
-<h3>Linear Relation Between $\eta$ and $\eta'$</h3>
-<p>Each colored scatter plot corresponds to a separate runs, performed on different days. As shown in the plot below, each run yields a slightly different slope, indicating changes in experimental conditions. The observed deviations are primarily due to noise. Additionally, the detector offset shifts the x-axis, so $\eta$ does not reach zero.</p>
-<img src="Final_Plots_files/Final_Plots_36_1.png" width="400" alt="Linear Relation">
-
-<h3>Manual Alignment</h3>
-<p>Manual alignment was performed by experienced operators using visual feedback from the photodetector traces. The process involved iterative adjustments of lens positions and mirror angles to maximize the transmission through the optical cavity. The resulting traces and reward statistics serve as a baseline for evaluating automated approaches. The figures below illustrate typical outcomes from manual alignment, showing both the best and average performance achieved by human operators.</p>
-
-<img src="Final_Plots_files/Final_Plots_18_0.png" width="700" alt="Manual Alignment Results">
-<img src="Final_Plots_files/Final_Plots_19_0.png" width="400" alt="Manual Alignment Statistics">
-
-<ul>
-    <li><strong>MAX HUMAN MME:</strong> 0.956</li>
-    <li><strong>MEAN HUMAN MME:</strong> 0.932</li>
-    <li><strong>Std. Dev:</strong> 1.68 %</li>
-</ul>
-
-<h3>Thermal Drift</h3>
-<p>Thermal drift causes fluctuations in the height and position of the transmission peak by inducing small misalignments as components expand or contract with temperature changes. These variations can degrade alignment quality, so tracking them is essential for assessing how well automated methods like AQUA maintain performance under changing conditions.</p>
-<img src="Final_Plots_files/Final_Plots_38_1.png" width="600" alt="Thermal Drift">
-
-<h3>Actuator Drifts</h3>
-<p>Actuator drifts refer to slow, unpredictable changes in actuator positions over time, often due to mechanical relaxation, temperature fluctuations, or electronic noise. The following plot illustrate the effect of executing a parameter on repeat</p>
-<img src="Final_Plots_files/Final_Plots_40_0.png" width="600" alt="Actuator Drifts">
-
-<h3>AQUA: Model Specs</h3>
-
-<div class="specs-grid">
-    <div class="spec-item">
-        <strong>Observation size:</strong> 1024 (raw data, no offset correction; continuous)
+    <h3>Linear Relation Between $\eta$ and $\eta'$</h3>
+    <p>Each colored scatter plot corresponds to a separate runs, performed on different days. As shown in the plot below, each run yields a slightly different slope, indicating changes in experimental conditions. The observed deviations are primarily due to noise. Additionally, the detector offset shifts the x-axis, so $\eta$ does not reach zero.</p>
+    
+    <div class="image-container medium-image">
+        <img src="Final_Plots_files/Final_Plots_36_1.png" alt="Linear Relation">
+        <div class="image-caption">Linear relationship between η and η' across multiple experimental runs</div>
     </div>
-    <div class="spec-item">
-        <strong>Action size:</strong> 6 (full bounds as previously described; continuous)
+
+    <h3>Manual Alignment</h3>
+    <p>Manual alignment was performed by experienced operators using visual feedback from the photodetector traces. The process involved iterative adjustments of lens positions and mirror angles to maximize the transmission through the optical cavity. The resulting traces and reward statistics serve as a baseline for evaluating automated approaches. The figures below illustrate typical outcomes from manual alignment, showing both the best and average performance achieved by human operators.</p>
+
+    <div class="image-grid">
+        <div class="image-container large-image">
+            <img src="Final_Plots_files/Final_Plots_18_0.png" alt="Manual Alignment Results">
+            <div class="image-caption">Manual alignment results showing photodetector traces and reward distributions</div>
+        </div>
+        <div class="image-container medium-image">
+            <img src="Final_Plots_files/Final_Plots_19_0.png" alt="Manual Alignment Statistics">
+            <div class="image-caption">Statistical analysis of manual alignment performance</div>
+        </div>
     </div>
-    <div class="spec-item">
-        <strong>Hidden sizes:</strong> encoder: 64, prediction: 64, policy: 512
+
+    <ul>
+        <li><strong>MAX HUMAN MME:</strong> 0.956</li>
+        <li><strong>MEAN HUMAN MME:</strong> 0.932</li>
+        <li><strong>Std. Dev:</strong> 1.68 %</li>
+    </ul>
+
+    <h3>Thermal Drift</h3>
+    <p>Thermal drift causes fluctuations in the height and position of the transmission peak by inducing small misalignments as components expand or contract with temperature changes. These variations can degrade alignment quality, so tracking them is essential for assessing how well automated methods like AQUA maintain performance under changing conditions.</p>
+    
+    <div class="image-container large-image">
+        <img src="Final_Plots_files/Final_Plots_38_1.png" alt="Thermal Drift">
+        <div class="image-caption">Thermal drift effects on optical cavity alignment over time</div>
     </div>
-    <div class="spec-item">
-        <strong>Number of hidden layers:</strong> 2
+
+    <h3>Actuator Drifts</h3>
+    <p>Actuator drifts refer to slow, unpredictable changes in actuator positions over time, often due to mechanical relaxation, temperature fluctuations, or electronic noise. The following plot illustrate the effect of executing a parameter on repeat</p>
+    
+    <div class="image-container large-image">
+        <img src="Final_Plots_files/Final_Plots_40_0.png" alt="Actuator Drifts">
+        <div class="image-caption">Actuator position drift during repeated parameter execution</div>
     </div>
-    <div class="spec-item">
-        <strong>Latent size:</strong> 32
+
+    <h3>AQUA: Model Specs</h3>
+
+    <div class="specs-grid">
+        <div class="spec-item">
+            <strong>Observation size:</strong> 1024 (raw data, no offset correction; continuous)
+        </div>
+        <div class="spec-item">
+            <strong>Action size:</strong> 6 (full bounds as previously described; continuous)
+        </div>
+        <div class="spec-item">
+            <strong>Hidden sizes:</strong> encoder: 64, prediction: 64, policy: 512
+        </div>
+        <div class="spec-item">
+            <strong>Number of hidden layers:</strong> 2
+        </div>
+        <div class="spec-item">
+            <strong>Latent size:</strong> 32
+        </div>
+        <div class="spec-item">
+            <strong>Activation:</strong> leakyReLU
+        </div>
+        <div class="spec-item">
+            <strong>Input sizes:</strong><br>
+            • encoder: 1024 + 6<br>
+            • prediction: 1024 + 6<br>
+            • policy: 32 + 6<br>
+            (6 for scaled parameters, used optionally with dropouts)
+        </div>
+        <div class="spec-item">
+            <strong>Optimizer:</strong> Adam
+        </div>
+        <div class="spec-item">
+            <strong>Learning rate:</strong> 0.0001
+        </div>
+        <div class="spec-item">
+            <strong>Batch size:</strong> encoder: 50, prediction: 50, policy: 200
+        </div>
+        <div class="spec-item">
+            <strong>Gradient clipping:</strong> 1.0
+        </div>
+        <div class="spec-item">
+            <strong>Dropout:</strong> 0.2
+        </div>
+        <div class="spec-item">
+            <strong>Weights initializer:</strong> kaiming_uniform
+        </div>
+        <div class="spec-item">
+            <strong>PyTorch version:</strong> 2.1.2
+        </div>
+        <div class="spec-item">
+            <strong>CUDA version:</strong> 12.1
+        </div>
     </div>
-    <div class="spec-item">
-        <strong>Activation:</strong> leakyReLU
+
+    <div class="highlight">
+        <strong>Total trainable parameters:</strong> 558,416<br>
+        <em>(Latest version: 10x fewer parameters, improved generalization and training times)</em>
     </div>
-    <div class="spec-item">
-        <strong>Input sizes:</strong><br>
-        • encoder: 1024 + 6<br>
-        • prediction: 1024 + 6<br>
-        • policy: 32 + 6<br>
-        (6 for scaled parameters, used optionally with dropouts)
+
+    <h3>Analyse AQUA Performance on Experiment</h3>
+    <p>AQUA automates optical alignment using sample-efficient reinforcement learning, reducing the need for manual tuning and adapting to system drifts. It achieves high alignment quality with fewer trials, outperforming manual methods and remaining robust to noise and environmental changes.</p>
+
+    <h4>AQUA Deployment Details</h4>
+    <ul>
+        <li><strong>Max steps per episode:</strong> 20</li>
+        <li><strong>Retraining interval:</strong> $\geq 20$ steps</li>
+        <li><strong>Reset protocol:</strong> Actuators are randomly reset within bounds after each episode.</li>
+    </ul>
+
+    <p>These settings ensure fair comparison with manual alignment and highlight AQUA's ability to rapidly and reliably achieve high-quality optical alignment.</p>
+
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/Final_Plots_31_0.png" alt="AQUA Performance">
+        <div class="image-caption">AQUA performance analysis showing learning curves and alignment quality</div>
     </div>
-    <div class="spec-item">
-        <strong>Optimizer:</strong> Adam
+
+    <h4>Time Taken to Realign</h4>
+    <p>AQUA typically realigns the optical system in under a minute after a reset, requiring about 10 steps at 5.44 seconds per step. This is much faster and more consistent than manual alignment, minimizing downtime and enabling reliable, repeatable operation.</p>
+
+    <div class="image-container medium-image">
+        <img src="Final_Plots_files/Final_Plots_33_0.png" alt="Realignment Time">
+        <div class="image-caption">Distribution of realignment times for AQUA vs manual methods</div>
     </div>
-    <div class="spec-item">
-        <strong>Learning rate:</strong> 0.0001
+
+    <ul>
+        <li><strong>Avg time per step:</strong> 5.44 sec (bottlenecked by actuator speed)</li>
+        <li><strong>Human $\eta'$ (max):</strong> 95.66 %</li>
+        <li><strong>Human $\eta'$ (mean):</strong> 93.19 %</li>
+    </ul>
+
+    <h3>Scatter Plots of the Parameter Space</h3>
+    <p>The scatter plots below illustrate the distribution of actuator parameters explored during the experiment. Each point represents a unique configuration sampled by the learning algorithm, colored according to the corresponding reward value. These visualizations help reveal which regions of the parameter space yield optimal alignment and highlight the diversity of solutions discovered by AQUA. Clusters of high-reward points indicate effective parameter combinations, while broader distributions reflect the exploration strategy and robustness of the method.</p>
+
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/Final_Plots_43_0.png" alt="Parameter Space">
+        <div class="image-caption">Parameter space exploration showing reward landscape and optimal regions</div>
     </div>
-    <div class="spec-item">
-        <strong>Batch size:</strong> encoder: 50, prediction: 50, policy: 200
+
+    <h3>AQUA: Reset Conditions</h3>
+    <p>All resets shown in the paper apply a parameter chosen randomly from the entire given bounds. As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we visualise the associated observations and the parameters.</p>
+
+    <div class="image-grid">
+        <div class="image-container large-image">
+            <img src="Final_Plots_files/Final_Plots_49_0.png" alt="Reset Conditions 1">
+            <div class="image-caption">Reset condition observations showing initial misalignment states</div>
+        </div>
+        <div class="image-container large-image">
+            <img src="Final_Plots_files/Final_Plots_49_1.png" alt="Reset Conditions 2">
+            <div class="image-caption">Parameter distributions during random reset conditions</div>
+        </div>
     </div>
-    <div class="spec-item">
-        <strong>Gradient clipping:</strong> 1.0
+
+    <h3>AQUA: Realign Without Retraining</h3>
+    <p>AQUA models trained online can realign the optical system from random starting points without further retraining, consistently reaching high reward values. This demonstrates strong generalization and resilience to experimental drifts. The figures below show reward trajectories for several realignment episodes using the same trained model, with rapid and reliable convergence.</p>
+
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/Final_Plots_51_0.png" alt="Realign Without Retraining">
+        <div class="image-caption">Realignment trajectories without retraining showing robust performance</div>
     </div>
-    <div class="spec-item">
-        <strong>Dropout:</strong> 0.2
+
+    <h3>AQUA: Visualising Top 5% Rewarded Observations</h3>
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/Final_Plots_53_0.png" alt="Top 5% Observations">
+        <div class="image-caption">Top 5% highest-reward observations demonstrating optimal alignment states</div>
     </div>
-    <div class="spec-item">
-        <strong>Weights initializer:</strong> kaiming_uniform
+
+    <h3>Cross Entropy Method (CEM) Sampling on Experiment</h3>
+    <p>CEM iteratively samples candidate solutions from a probability distribution, evaluates their performance, and updates the distribution to focus on the most promising regions of the parameter space. This method is particularly useful for optimization problems where the search space is large and gradients are unavailable or unreliable. This provides an easy and effective method to sample the initial pre-train dataset required by AQUA.<br>
+    <a href="https://doi.org/10.1023/A:1010091220143" target="_blank">DOI: 10.1023/A:1010091220143</a></p>
+
+    <div class="image-grid">
+        <div class="image-container large-image">
+            <img src="Final_Plots_files/Final_Plots_55_0.png" alt="CEM Sampling 1">
+            <div class="image-caption">Cross Entropy Method sampling distribution evolution</div>
+        </div>
+        <div class="image-container large-image">
+            <img src="Final_Plots_files/Final_Plots_56_0.png" alt="CEM Sampling 2">
+            <div class="image-caption">CEM convergence showing parameter space refinement</div>
+        </div>
     </div>
-    <div class="spec-item">
-        <strong>PyTorch version:</strong> 2.1.2
+
+    <p>As can be seen here, the reward landscape is different, given different configurations of the optics.</p>
+
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/Final_Plots_57_1.png" alt="Reward Landscape">
+        <div class="image-caption">Reward landscape variations across different optical configurations</div>
     </div>
-    <div class="spec-item">
-        <strong>CUDA version:</strong> 12.1
+
+    <h3>Compare AQUA with Standard Model-Free RL (Stable Baselines) in Cavity Simulation</h3>
+    <p>It is to be noted that the simulations are free of all kinds of drifts and one can expect to get similar rewards for repeat measurements.<br>
+    Thanks to Viktoria-S. Schmiesing for help with setting up SB3 and its reward function and Aaron Tranter for the simulation.<br>
+    For more information on the simulation environment visit: <a href="https://www.gwoptics.org/pykat/" target="_blank">GW Optics</a><br>
+    <a href="https://stable-baselines.readthedocs.io/en/master/" target="_blank">Stable Baselines</a><br>
+    <a href="https://www.gymlibrary.dev/" target="_blank">OpenAI Gym</a></p>
+
+    <div class="image-container hero-image">
+        <img src="Final_Plots_files/Final_Plots_62_0.png" alt="AQUA vs Stable Baselines">
+        <div class="image-caption">Performance comparison between AQUA and standard model-free RL methods</div>
     </div>
-</div>
 
-<div class="highlight">
-    <strong>Total trainable parameters:</strong> 558,416<br>
-    <em>(Latest version: 10x fewer parameters, improved generalization and training times)</em>
-</div>
+    <p>Reward Functions used in simulation, with additional penalties to account for the multi-step architecture of standard model-free RL.</p>
 
-<h3>Analyse AQUA Performance on Experiment</h3>
-<p>AQUA automates optical alignment using sample-efficient reinforcement learning, reducing the need for manual tuning and adapting to system drifts. It achieves high alignment quality with fewer trials, outperforming manual methods and remaining robust to noise and environmental changes.</p>
-
-<h4>AQUA Deployment Details</h4>
-<ul>
-    <li><strong>Max steps per episode:</strong> 20</li>
-    <li><strong>Retraining interval:</strong> $\geq 20$ steps</li>
-    <li><strong>Reset protocol:</strong> Actuators are randomly reset within bounds after each episode.</li>
-</ul>
-
-<p>These settings ensure fair comparison with manual alignment and highlight AQUA's ability to rapidly and reliably achieve high-quality optical alignment.</p>
-
-<img src="Final_Plots_files/Final_Plots_31_0.png" width="700" alt="AQUA Performance">
-
-<h4>Time Taken to Realign</h4>
-<p>AQUA typically realigns the optical system in under a minute after a reset, requiring about 10 steps at 5.44 seconds per step. This is much faster and more consistent than manual alignment, minimizing downtime and enabling reliable, repeatable operation.</p>
-
-<img src="Final_Plots_files/Final_Plots_33_0.png" width="400" alt="Realignment Time">
-
-<ul>
-    <li><strong>Avg time per step:</strong> 5.44 sec (bottlenecked by actuator speed)</li>
-    <li><strong>Human $\eta'$ (max):</strong> 95.66 %</li>
-    <li><strong>Human $\eta'$ (mean):</strong> 93.19 %</li>
-</ul>
-
-<h3>Scatter Plots of the Parameter Space</h3>
-<p>The scatter plots below illustrate the distribution of actuator parameters explored during the experiment. Each point represents a unique configuration sampled by the learning algorithm, colored according to the corresponding reward value. These visualizations help reveal which regions of the parameter space yield optimal alignment and highlight the diversity of solutions discovered by AQUA. Clusters of high-reward points indicate effective parameter combinations, while broader distributions reflect the exploration strategy and robustness of the method.</p>
-
-<img src="Final_Plots_files/Final_Plots_43_0.png" width="700" alt="Parameter Space">
-
-<h3>AQUA: Reset Conditions</h3>
-<p>All resets shown in the paper apply a parameter chosen randomly from the entire given bounds. As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we visualise the associated observations and the parameters.</p>
-
-<img src="Final_Plots_files/Final_Plots_49_0.png" width="700" alt="Reset Conditions 1">
-<img src="Final_Plots_files/Final_Plots_49_1.png" width="700" alt="Reset Conditions 2">
-
-<h3>AQUA: Realign Without Retraining</h3>
-<p>AQUA models trained online can realign the optical system from random starting points without further retraining, consistently reaching high reward values. This demonstrates strong generalization and resilience to experimental drifts. The figures below show reward trajectories for several realignment episodes using the same trained model, with rapid and reliable convergence.</p>
-
-<img src="Final_Plots_files/Final_Plots_51_0.png" width="700" alt="Realign Without Retraining">
-
-<h3>AQUA: Visualising Top 5% Rewarded Observations</h3>
-<img src="Final_Plots_files/Final_Plots_53_0.png" width="700" alt="Top 5% Observations">
-
-<h3>Cross Entropy Method (CEM) Sampling on Experiment</h3>
-<p>CEM iteratively samples candidate solutions from a probability distribution, evaluates their performance, and updates the distribution to focus on the most promising regions of the parameter space. This method is particularly useful for optimization problems where the search space is large and gradients are unavailable or unreliable. This provides an easy and effective method to sample the initial pre-train dataset required by AQUA.<br>
-<a href="https://doi.org/10.1023/A:1010091220143" target="_blank">DOI: 10.1023/A:1010091220143</a></p>
-
-<img src="Final_Plots_files/Final_Plots_55_0.png" width="700" alt="CEM Sampling 1">
-<img src="Final_Plots_files/Final_Plots_56_0.png" width="700" alt="CEM Sampling 2">
-
-<p>As can be seen here, the reward landscape is different, given different configurations of the optics.</p>
-
-<img src="Final_Plots_files/Final_Plots_57_1.png" width="700" alt="Reward Landscape">
-
-<h3>Compare AQUA with Standard Model-Free RL (Stable Baselines) in Cavity Simulation</h3>
-<p>It is to be noted that the simulations are free of all kinds of drifts and one can expect to get similar rewards for repeat measurements.<br>
-Thanks to Viktoria-S. Schmiesing for help with setting up SB3 and its reward function and Aaron Tranter for the simulation.<br>
-For more information on the simulation environment visit: <a href="https://www.gwoptics.org/pykat/" target="_blank">GW Optics</a><br>
-<a href="https://stable-baselines.readthedocs.io/en/master/" target="_blank">Stable Baselines</a><br>
-<a href="https://www.gymlibrary.dev/" target="_blank">OpenAI Gym</a></p>
-
-<img src="Final_Plots_files/Final_Plots_62_0.png" width="700" alt="AQUA vs Stable Baselines">
-
-<p>Reward Functions used in simulation, with additional penalties to account for the multi-step architecture of standard model-free RL.</p>
-
-<pre><code class="language-python"># THE REWARD FUNCTION FOR AQUA THAT CALCULATES COST FROM A TRACE
+    <pre><code class="language-python"># THE REWARD FUNCTION FOR AQUA THAT CALCULATES COST FROM A TRACE
 
 def reward(self, obs):        
     pv, _ = find_peaks(self.best_obs.squeeze(), height=0)
@@ -312,21 +380,52 @@ def calculate_reward(self, neg_cost):
     # NOTE: IN BOTH CASES (AQUA & SB) THE OBSERVATION GIVEN IS SAME (TRACE + PARAMS)
     #       AND THE BOUNDS USED ARE ALSO SAME</code></pre>
 
-<hr>
+    <hr>
 
-<footer>
-    <p><strong>Contact:</strong> <a href="mailto:arindam.saha@anu.edu.au">arindam.saha@anu.edu.au</a></p>
-    <p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2503.14260" target="_blank">arXiv:2503.14260</a></p>
-</footer>
-
-    
+    <footer>
+        <p><strong>Contact:</strong> <a href="mailto:arindam.saha@anu.edu.au">arindam.saha@anu.edu.au</a></p>
+        <p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2503.14260" target="_blank">arXiv:2503.14260</a></p>
+    </footer>
 </div>
 
 <!-- Add scroll-to-top and navigation enhancements -->
 <button class="scroll-top" onclick="scrollToTop()">↑</button>
 
 <script>
-// All your existing JavaScript code here
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide scroll button
+window.addEventListener('scroll', function() {
+    const scrollButton = document.querySelector('.scroll-top');
+    if (window.pageYOffset > 300) {
+        scrollButton.classList.add('visible');
+    } else {
+        scrollButton.classList.remove('visible');
+    }
+});
+
+// Image lazy loading and fade-in effect
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.style.opacity = '1';
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+});
 </script>
 
 </body>
