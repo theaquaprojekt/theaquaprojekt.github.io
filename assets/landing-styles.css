@@ -27,6 +27,8 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     backdrop-filter: blur(20px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
 }
 
 .landing-container {
@@ -34,6 +36,8 @@ body {
     padding: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
 }
 
 /* Header Section */
@@ -391,95 +395,47 @@ body {
     font-style: italic;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .two-column-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .project-card {
-        height: 220px; /* Reduced from 250px for tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .landing-container {
-        padding: 1rem;
-    }
-    
-    .header-section h1 {
-        font-size: 2.5rem;
-    }
-    
-    .header-section h2 {
-        font-size: 1.2rem;
-    }
-    
-    .project-card {
-        height: 200px; /* Reduced from 300px for mobile */
-    }
-    
-    .project-column {
-        padding: 1.5rem;
-    }
-    
-    .introduction-section {
-        max-width: 95%; /* Use percentage for mobile */
-        padding: 1.5rem 2rem; /* Maintain more generous padding */
-        margin: 2rem auto 0;
-    }
-    
-    .introduction-section p {
-        font-size: 0.95rem;
-    }
-    
-    .vision-highlight {
-        font-size: 1rem !important;
-    }
-}
-
-@media (max-width: 512px) {
-    .project-card {
-        height: 160px; /* Reduced from 180px for very small screens */
-    }
-    
-    .introduction-section {
-        padding: 1.2rem;
-        margin: 1.5rem auto 0;
-    }
-    
-    .introduction-section p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Selection styling */
-::selection {
-    background: rgba(74, 144, 226, 0.2);
-    color: var(--text-primary);
-}
-
-/* Custom scrollbar */
+/* Dark Mode Scrollbars for Landing Page */
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--bg-primary);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
+    background: var(--border-color);
+    border-radius: 6px;
+    border: 2px solid var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--border-light);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--accent-blue);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg-primary);
+}
+
+/* Firefox scrollbars */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
+}
+
+.landing-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
 }

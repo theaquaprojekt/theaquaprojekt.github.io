@@ -47,15 +47,41 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    width: 100%; /* Full width */
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 0; /* Remove horizontal padding from nav */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Container for nav content with max-width */
+.top-nav > * {
+    margin: 0 1.5rem; /* Add horizontal margin to nav children */
+}
+
+.top-nav .back-link {
+    margin-left: 1.5rem; /* Ensure back link has proper margin */
+}
+
+.top-nav .nav-links {
+    margin-right: 1.5rem; /* Ensure nav links have proper margin */
+}
+
+/* Alternative approach with a wrapper div */
+.nav-container {
+    max-width: 1200px; /* Optional: limit content width but keep full bar */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem; /* Move padding to container */
 }
 
 .top-nav h1 {
@@ -368,23 +394,17 @@ img:hover {
     border-color: var(--border-light);
 }
 
-/* Enhanced Image Containers and Layouts */
+/* Enhanced Image Containers and Layouts - Remove window boxes */
 .image-container {
     position: relative;
-    margin: 2.5rem 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 12px 40px var(--shadow-dark);
-    border: 1px solid var(--border-color);
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
+    margin: 2.5rem auto;
+    width: 100%;
+    max-width: 1000px;
+    /* Removed: border-radius, overflow, box-shadow, border, background, backdrop-filter */
 }
 
 .image-container:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px var(--shadow-dark);
-    border-color: var(--border-light);
+    /* Removed: transform, box-shadow, border-color */
 }
 
 .image-container img {
@@ -396,44 +416,43 @@ img:hover {
     border-radius: 0;
     transition: all 0.6s ease;
     opacity: 0;
+    object-fit: contain;
+    object-position: center;
+    /* Removed: background, padding */
 }
 
 .image-container:hover img {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    backdrop-filter: blur(10px);
-    color: var(--text-primary);
-    padding: 1.5rem;
+    position: static; /* Changed from absolute */
+    background: none; /* Removed gradient background */
+    backdrop-filter: none; /* Removed blur */
+    color: var(--text-muted);
+    padding: 0.8rem 0; /* Only top/bottom padding */
     font-size: 0.85rem;
     font-weight: 300;
     letter-spacing: 0.02em;
     line-height: 1.4;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.4s ease;
+    opacity: 1; /* Always visible */
+    transform: none; /* No transform */
+    transition: none; /* No transition */
+    text-align: center;
+    font-style: italic;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.5rem;
 }
 
+/* Remove hover effects for captions */
 .image-container:hover .image-caption {
-    opacity: 1;
-    transform: translateY(0);
+    /* No special hover styles */
 }
 
-/* Image Size Classes */
+/* Image Size Classes - Clean layout */
 .hero-image {
     max-width: 100%;
-    margin: 3rem 0;
-}
-
-.hero-image img {
-    min-height: 400px;
-    object-fit: cover;
+    margin: 3rem auto;
 }
 
 .large-image {
@@ -441,181 +460,126 @@ img:hover {
     margin: 2.5rem auto;
 }
 
-.large-image img {
-    min-height: 300px;
-    object-fit: cover;
-}
-
 .medium-image {
-    max-width: 70%;
+    max-width: 80%;
     margin: 2rem auto;
 }
 
-.medium-image img {
-    min-height: 250px;
-    object-fit: cover;
-}
-
 .small-image {
-    max-width: 50%;
+    max-width: 60%;
     margin: 1.5rem auto;
 }
 
-/* Image Grid Layout */
+/* Modified Image Grid - Clean single column */
 .image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+    display: block;
     margin: 3rem 0;
 }
 
 .image-grid .image-container {
-    margin: 0;
+    margin: 2rem auto;
+    max-width: 90%;
 }
 
-/* Full-width gallery for special images */
-.image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 3rem 0;
-}
-
-.image-gallery .image-container {
-    margin: 0;
-    border-radius: 8px;
-}
-
-/* Special hover effects for different image types */
-.hero-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+/* Clean table styling */
+table {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-    transition: left 0.8s;
-    z-index: 1;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
-.hero-image:hover::before {
-    left: 100%;
-}
-
-/* Image loading states */
-.image-container img[src=""] {
+/* Clean code block styling */
+pre {
+    max-width: 900px;
+    margin: 2rem auto;
+    overflow-x: auto;
     background: var(--tertiary-bg);
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
 }
 
-.image-container img[src=""]:after {
-    content: "Loading...";
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Specs grid - keep styled */
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
 }
 
-/* Lightbox effect for images */
-.image-container img:hover {
-    cursor: zoom-in;
+.spec-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-    .hero-image img {
-        min-height: 300px;
+    .large-image {
+        max-width: 95%;
     }
     
-    .large-image img {
-        min-height: 250px;
-    }
-    
-    .image-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .medium-image {
+        max-width: 90%;
     }
 }
 
 @media (max-width: 768px) {
     .image-container {
-        margin: 1.5rem 0;
-        border-radius: 8px;
-    }
-    
-    .hero-image img {
-        min-height: 200px;
-    }
-    
-    .large-image img {
-        min-height: 180px;
-    }
-    
-    .medium-image img {
-        min-height: 150px;
+        margin: 1.5rem auto;
+        max-width: 100%;
     }
     
     .large-image,
-    .medium-image {
+    .medium-image,
+    .small-image {
         max-width: 100%;
     }
     
     .image-caption {
-        padding: 1rem;
+        padding: 0.6rem 0;
         font-size: 0.8rem;
     }
     
-    .image-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .image-gallery {
+    .specs-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-image img,
-    .large-image img,
-    .medium-image img {
-        min-height: 150px;
-    }
-    
     .image-caption {
-        padding: 0.8rem;
+        padding: 0.5rem 0;
         font-size: 0.75rem;
     }
 }
 
-/* Print styles for images */
+/* Remove special effects */
+.hero-image::before {
+    display: none; /* Remove shine effect */
+}
+
+/* Print styles for clean images */
 @media print {
     .image-container {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        background: #fff;
-        break-inside: avoid;
-        margin: 1rem 0;
+        margin: 1rem auto;
+        max-width: 100%;
     }
     
     .image-caption {
-        position: static;
-        background: #f5f5f5;
         color: #333;
-        opacity: 1;
-        transform: none;
         border-top: 1px solid #ccc;
-    }
-    
-    .hero-image::before {
-        display: none;
+        padding: 0.5rem 0;
     }
 }
 
@@ -710,16 +674,23 @@ img {
     }
     
     .top-nav {
-        padding: 0.6rem 1rem;
+        padding: 0.6rem 0;
     }
     
-    .top-nav h1 {
-        font-size: 0.9rem;
+    .top-nav > * {
+        margin: 0 1rem;
     }
     
-    .nav-links a {
-        font-size: 0.8rem;
-        padding: 0.3rem 0.6rem;
+    .top-nav .back-link {
+        margin-left: 1rem;
+    }
+    
+    .top-nav .nav-links {
+        margin-right: 1rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
     }
     
     h1 {
@@ -854,19 +825,94 @@ img {
 }
 
 /* Custom scrollbar */
+/* Dark Mode Scrollbars */
+/* For WebKit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--bg-primary);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
+    background: var(--border-color);
+    border-radius: 6px;
+    border: 2px solid var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--border-light);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--accent-blue);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg-primary);
+}
+
+/* For code blocks and pre elements */
+pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: var(--tertiary-bg);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: var(--border-light);
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
+}
+
+pre {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--tertiary-bg);
+}
+
+/* For tables with horizontal scroll */
+table::-webkit-scrollbar {
+    height: 8px;
+}
+
+table::-webkit-scrollbar-track {
+    background: var(--glass-bg);
+    border-radius: 4px;
+}
+
+table::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+table::-webkit-scrollbar-thumb:hover {
+    background: var(--border-light);
+}
+
+/* Main body scrollbar styling */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
+}
+
+/* Ensure scrollbars work in all containers */
+.content-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) var(--bg-primary);
 }
