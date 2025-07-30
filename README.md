@@ -1,4 +1,4 @@
-# Aqua: A Quantised Utility Agent
+# AQUA: A Quantized Utility Agent
 
 [![DOI](https://zenodo.org/badge/988057044.svg)](https://doi.org/10.5281/zenodo.15562906)
 
