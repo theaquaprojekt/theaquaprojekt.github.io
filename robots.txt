@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Allow all web crawlers to access all content
+# Specific pages
+Allow: /index.html
+Allow: /cavity.html
+Allow: /silicon.html
+Allow: /assets/
+Allow: /optics_assets/
+Allow: /silicon_assets/
+
+# Disallow certain file types that shouldn't be indexed
+Disallow: *.yml
+Disallow: *.md
+Disallow: *.workspace
+
+# Sitemap location
+Sitemap: https://arindam5aha.github.io/aqua/sitemap.xml
+
+# Crawl-delay (optional - sets delay between requests)
+Crawl-delay: 1

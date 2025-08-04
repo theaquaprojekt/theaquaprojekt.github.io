@@ -78,7 +78,7 @@ keywords:
 # File handling
 include:
   - _pages
-  - Final_Plots_files
+  - optics_assets
   - assets
 
 exclude:
@@ -108,7 +108,7 @@ defaults:
       layout: "default"
       author: "Arindam Saha"
   - scope:
-      path: "Final_Plots_files"
+      path: "optics_assets"
     values:
       image: true
 

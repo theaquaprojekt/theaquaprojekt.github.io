@@ -32,7 +32,7 @@ kramdown:
 
 # File handling
 include:
-  - Final_Plots_files
+  - optics_assets
   - assets
 
 exclude:

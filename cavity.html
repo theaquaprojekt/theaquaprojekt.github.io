@@ -1,65 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZMVW9JV3G"></script>
+    <!-- Performance optimizations -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/styles.css" as="style">
+    <link rel="preload" href="optics_assets/Thumbnail.svg" as="image">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://polyfill.io">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Google tag (gtag.js) - Optimized loading -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-7ZMVW9JV3G');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQUA Project - Full Details</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZMVW9JV3G"></script>
+    <title>AQUA : A Quantized Utility Agent | Automated Experimental Control</title>
     
-    <!-- MathJax for LaTeX rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Detailed research on AQUA: A Quantized Utility Agent for autonomous optical cavity alignment. Learn how simplified reinforcement learning automates complex experimental physics with minimal supervision.">
+    <meta name="keywords" content="AQUA, A Quantized Utility Agent, A Quantised Utility Agent, Simplified RL, Optical Cavity Alignment, Reinforcement Learning, Automation, Experimental Physics, Mode Matching, Quantum Optics, Machine Learning, Scientific Automation, AI Control Systems, Free-space Optics">
+    <meta name="author" content="Arindam Saha">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AQUA Optical Cavity Alignment | Automated Experimental Control">
+    <meta property="og:description" content="Comprehensive research on autonomous optical cavity alignment using AQUA - A Quantized Utility Agent. Simplified RL approach for experimental physics automation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://arindam5aha.github.io/aqua/cavity.html">
+    <meta property="og:image" content="https://arindam5aha.github.io/aqua/optics_assets/Thumbnail.svg">
+    <meta property="og:site_name" content="The Aqua Project">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AQUA Optical Cavity Alignment | Automated Experimental Control">
+    <meta name="twitter:description" content="Detailed research on autonomous optical cavity alignment using simplified reinforcement learning. Published in OPTICA journal.">
+    <meta name="twitter:image" content="https://arindam5aha.github.io/aqua/optics_assets/Thumbnail.svg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1e3a8a">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="optics_assets/Thumbnail.svg">
+    <link rel="apple-touch-icon" href="optics_assets/Thumbnail.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://arindam5aha.github.io/aqua/cavity.html">
+    
+    <!-- Structured Data for Research Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "AQUA: Automating Experimental Optics with Sample Efficient Reinforcement Learning",
+        "description": "Detailed research on AQUA: A Quantized Utility Agent for autonomous optical cavity alignment using simplified reinforcement learning.",
+        "author": {
+            "@type": "Person",
+            "name": "Arindam Saha",
+            "affiliation": "Australian National University"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OPTICA"
+        },
+        "url": "https://arindam5aha.github.io/aqua/cavity.html",
+        "image": "https://arindam5aha.github.io/aqua/optics_assets/Thumbnail.svg",
+        "keywords": ["AQUA", "Optical Cavity Alignment", "Reinforcement Learning", "Machine Learning", "Experimental Physics", "A Quantized Utility Agent", "A Quantised Utility Agent"],
+        "about": "Autonomous optical cavity alignment using machine learning"
+    }
+    </script>
+    
+    <!-- MathJax for LaTeX rendering - Optimized loading -->
     <script>
-        MathJax = {
+        // Configure MathJax before loading
+        window.MathJax = {
             tex: {
                 inlineMath: [['$','$'], ['\\(','\\)']],
                 displayMath: [['$$','$$'], ['\\[','\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                renderActions: {
+                    addMenu: []
+                }
+            },
+            startup: {
+                typeset: false
             }
         };
     </script>
+    <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
-    <!-- External CSS -->
-    <link rel="stylesheet" href="assets/styles.css">
+    <!-- External CSS - Optimized loading -->
+    <link rel="stylesheet" href="assets/styles.css" media="all">
     
-    <!-- Add specific styling for matched plot heights -->
+    <!-- Performance hints -->
+    <link rel="prefetch" href="index.html">
+    
+    <!-- Enhanced styling for visual coherence with homepage -->
     <style>
-        .matched-height-plots .image-container {
-            height: 400px; /* Fixed height for all plots */
+        /* Override and enhance existing styles for better visual coherence */
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            margin-top: 40px;
+        }
+        
+        /* Enhanced navigation */
+        .top-nav {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1rem 2rem;
+        }
+        
+        .top-nav h1 {
+            font-size: 1.1rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, #6BB6FF, #4A90E2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Modern card styling for images */
+        .image-container {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-container:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* Matched height for most images */
+        .matched-height-plots .image-container {
+            height: 500px;
         }
         
         .matched-height-plots .image-container img {
-            flex: 1;
-            object-fit: contain;
-            object-position: center;
+            max-height: 400px;
+            max-width: 100%;
+            width: auto;
+        }
+        
+        /* Large images get more height */
+        .image-container.large-image {
+            height: 550px;
+        }
+        
+        .image-container.large-image img {
+            max-height: 450px;
+            max-width: 100%;
+            width: auto;
+        }
+        
+        /* Medium images get standard height */
+        .image-container.medium-image {
+            height: 450px;
+        }
+        
+        .image-container.medium-image img {
+            max-height: 350px;
+            max-width: 100%;
+            width: auto;
+        }
+        
+        /* Hero images can be flexible */
+        .image-container.hero-image {
+            height: auto;
+            min-height: 400px;
+        }
+        
+        /* Exception for reset conditions - keep original flexible height */
+        .reset-conditions .image-container {
+            height: auto !important;
+        }
+        
+        .reset-conditions .image-container img {
+            height: auto !important;
+            max-height: none !important;
+            flex: none !important;
+        }
+        
+        .image-caption {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Enhanced grid layouts */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        /* Modern table styling */
+        table {
             width: 100%;
-            height: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            overflow: hidden;
         }
         
-        .matched-height-plots .image-caption {
-            flex-shrink: 0;
-            margin-top: auto;
+        table th,
+        table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
         
+        table th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        table td {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Modern code blocks */
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        /* Enhanced specs grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .spec-item {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .spec-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        
+        /* Enhanced highlight boxes */
+        .highlight {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(107, 182, 255, 0.05));
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(20px);
+        }
+        
+        /* Paper links styling */
+        .paper-links {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .paper-links a {
+            color: #6BB6FF;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .paper-links a:hover {
+            color: #4A90E2;
+            text-decoration: underline;
+        }
+        
+        /* Enhanced footer */
+        footer {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0 2rem 0;
+            text-align: center;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(74, 144, 226, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            z-index: 1000;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            background: rgba(107, 182, 255, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        /* Enhanced lists */
+        ul, ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin: 0.8rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 1rem;
+                margin-top: 30px;
+            }
+            
+            .top-nav {
+                padding: 0.8rem 1rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            pre {
+                padding: 1.5rem;
+                font-size: 0.8rem;
+            }
+            
+            /* Adjust image heights for mobile */
             .matched-height-plots .image-container {
-                height: 300px;
+                height: 350px;
+            }
+            
+            .image-container.large-image {
+                height: 400px;
+            }
+            
+            .image-container.medium-image {
+                height: 320px;
+            }
+            
+            .matched-height-plots .image-container img {
+                max-height: 280px;
+            }
+            
+            .image-container.large-image img {
+                max-height: 320px;
+            }
+            
+            .image-container.medium-image img {
+                max-height: 250px;
             }
         }
         
         @media (max-width: 480px) {
+            /* Further reduce heights for very small screens */
             .matched-height-plots .image-container {
-                height: 250px;
+                height: 300px;
             }
+            
+            .image-container.large-image {
+                height: 350px;
+            }
+            
+            .image-container.medium-image {
+                height: 280px;
+            }
+            
+            .matched-height-plots .image-container img {
+                max-height: 230px;
+            }
+            
+            .image-container.large-image img {
+                max-height: 280px;
+            }
+            
+            .image-container.medium-image img {
+                max-height: 210px;
+            }
+        }
+        
+        /* Remove old matched height styling */
+        .matched-height-plots .image-container {
+            height: auto;
         }
     </style>
 </head>
@@ -68,7 +488,7 @@
 <!-- Navigation -->
 <nav class="top-nav">
     <a href="index.html" class="back-link">← Back to Overview</a>
-    <h1>AQUA Optics Project</h1>
+    <h1>AQUA: Optical Cavity Alignment</h1>
     <div class="nav-links">
         <a href="https://arxiv.org/abs/2503.14260" target="_blank">Paper</a>
         <a href="mailto:arindam.saha@anu.edu.au">Contact</a>
@@ -77,7 +497,10 @@
 
 <!-- Your existing content goes here -->
 <div class="content-wrapper">
-    <h1>Automating Experimental Optics with Sample Efficient Machine Learning Methods</h1>
+    <h1>AQUA: Automating Experimental Optics</h1>
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.7); font-weight: 300;">Sample Efficient Reinforcement Learning for Autonomous Optical Cavity Alignment</p>
+    </div>
 
     <div class="paper-links">
         <p><strong>Paper Link:</strong> <a href="https://arxiv.org/abs/2503.14260" target="_blank">arXiv:2503.14260</a><br>
@@ -88,24 +511,28 @@
     <p>As free-space optical systems grow in scale and complexity, troubleshooting becomes increasingly time-consuming and, in the case of remote installations, perhaps impractical. An example of a task that is often laborious is the alignment of a high-finesse optical resonator, which is highly sensitive to the mode of the input beam. In this work, we demonstrate how machine learning can be used to achieve autonomous mode-matching of a free-space optical resonator with minimal supervision. Our approach leverages sample-efficient algorithms to reduce data requirements while maintaining a simple architecture for easy deployment. The reinforcement learning scheme that we have developed shows that automation is feasible even in systems prone to drift in experimental parameters, as may well be the case in real-world applications.</p>
 
     <div class="image-container hero-image">
-        <img src="Final_Plots_files/fig_2.svg" alt="Experimental Setup">
+        <img src="optics_assets/fig_2.svg" alt="Experimental Setup" decoding="async">
         <div class="image-caption">Experimental Setup: Complete optical cavity alignment system with automated control</div>
     </div>
 
-    <hr>
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 3rem 0; position: relative;">
+        <div style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 60px; height: 1px; background: linear-gradient(135deg, #6BB6FF, #4A90E2);"></div>
+    </div>
 
     <div class="highlight">
         <strong>Note:</strong> This page provides supplementary information and extended results for the paper linked above. Readers are encouraged to refer to this document for additional experimental details, figures, and technical clarifications that complement the main manuscript.
     </div>
 
-    <hr>
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 3rem 0; position: relative;">
+        <div style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 60px; height: 1px; background: linear-gradient(135deg, #6BB6FF, #4A90E2);"></div>
+    </div>
 
     <div class="matched-height-plots">
         <h3>Visualising the Observation Space</h3>
         <p>The observation space consists of 1024-dimensional traces from the photodetector, capturing the transmitted intensity through the optical cavity. These high-resolution signals allow the learning algorithm to distinguish between different alignment states. The figure below shows randomly sampled observations, highlighting the diversity of signals during alignment.</p>
         
         <div class="image-container large-image">
-            <img src="Final_Plots_files/random_obs.gif" alt="Random Observations">
+            <img src="optics_assets/random_obs.gif" alt="Random Observations" loading="lazy" decoding="async">
             <div class="image-caption">Random sampling of photodetector traces during cavity alignment process</div>
         </div>
 
@@ -113,7 +540,7 @@
         <p>Simulated outputs below show different Hermite-Gauss modes as seen in the experiment. Each mode has a unique spatial profile, helping to interpret photodetector traces and guide alignment optimization.</p>
         
         <div class="image-container large-image">
-            <img src="Final_Plots_files/Final_Plots_5_0.png" alt="Hermite-Gauss Modes">
+            <img src="optics_assets/Final_Plots_5_0.png" alt="Hermite-Gauss Modes" loading="lazy" decoding="async">
             <div class="image-caption">Spatial profiles of different Hermite-Gauss modes in optical cavity</div>
         </div>
     </div>
@@ -125,7 +552,7 @@
     <table>
         <thead>
             <tr>
-                <th>Parameter</th>
+                <th>Control Parameter</th>
                 <th>Bounds</th>
             </tr>
         </thead>
@@ -172,7 +599,7 @@
         <p>Each colored scatter plot corresponds to a separate runs, performed on different days. As shown in the plot below, each run yields a slightly different slope, indicating changes in experimental conditions. The observed deviations are primarily due to noise. Additionally, the detector offset shifts the x-axis, so $\eta$ does not reach zero.</p>
         
         <div class="image-container medium-image">
-            <img src="Final_Plots_files/Final_Plots_36_1.png" alt="Linear Relation">
+            <img src="optics_assets/Final_Plots_36_1.png" alt="Linear Relation" loading="lazy" decoding="async">
             <div class="image-caption">Linear relationship between η and η' across multiple experimental runs</div>
         </div>
 
@@ -181,11 +608,11 @@
 
         <div class="image-grid">
             <div class="image-container large-image">
-                <img src="Final_Plots_files/Final_Plots_18_0.png" alt="Manual Alignment Results">
+                <img src="optics_assets/Final_Plots_18_0.png" alt="Manual Alignment Results">
                 <div class="image-caption">Manual alignment results showing photodetector traces and reward distributions</div>
             </div>
             <div class="image-container large-image">
-                <img src="Final_Plots_files/Final_Plots_19_0.png" alt="Manual Alignment Statistics">
+                <img src="optics_assets/Final_Plots_19_0.png" alt="Manual Alignment Statistics">
                 <div class="image-caption">Statistical analysis of manual alignment performance</div>
             </div>
         </div>
@@ -199,21 +626,21 @@
         <h3>Thermal Drift</h3>
         <p>Thermal drift causes fluctuations in the height and position of the transmission peak by inducing small misalignments as components expand or contract with temperature changes. These variations can degrade alignment quality, so tracking them is essential for assessing how well automated methods like AQUA maintain performance under changing conditions.</p>
         
-        <div class="image-container large-image">
-            <img src="Final_Plots_files/Final_Plots_38_1.png" alt="Thermal Drift">
+        <div class="image-container medium-image">
+            <img src="optics_assets/Final_Plots_38_1.png" alt="Thermal Drift">
             <div class="image-caption">Thermal drift effects on optical cavity alignment over time</div>
         </div>
 
         <h3>Actuator Drifts</h3>
         <p>Actuator drifts refer to slow, unpredictable changes in actuator positions over time, often due to mechanical relaxation, temperature fluctuations, or electronic noise. The following plot illustrate the effect of executing a parameter on repeat</p>
         
-        <div class="image-container large-image">
-            <img src="Final_Plots_files/Final_Plots_40_0.png" alt="Actuator Drifts">
+        <div class="image-container medium-image">
+            <img src="optics_assets/Final_Plots_40_0.png" alt="Actuator Drifts">
             <div class="image-caption">Actuator position drift during repeated parameter execution</div>
         </div>
     </div>
 
-    <h3>AQUA: Model Specs</h3>
+    <h3>Model Specs</h3>
 
     <div class="specs-grid">
         <div class="spec-item">
@@ -287,7 +714,7 @@
         <p>These settings ensure fair comparison with manual alignment and highlight AQUA's ability to rapidly and reliably achieve high-quality optical alignment.</p>
 
         <div class="image-container hero-image">
-            <img src="Final_Plots_files/Final_Plots_31_0.png" alt="AQUA Performance">
+            <img src="optics_assets/Final_Plots_31_0.png" alt="AQUA Performance">
             <div class="image-caption">AQUA performance analysis showing learning curves and alignment quality</div>
         </div>
 
@@ -295,49 +722,49 @@
         <p>AQUA typically realigns the optical system in under a minute after a reset, requiring about 10 steps at 5.44 seconds per step. This is much faster and more consistent than manual alignment, minimizing downtime and enabling reliable, repeatable operation.</p>
 
         <div class="image-container medium-image">
-            <img src="Final_Plots_files/Final_Plots_33_0.png" alt="Realignment Time">
-            <div class="image-caption">Distribution of realignment times for AQUA vs manual methods</div>
+            <img src="optics_assets/Final_Plots_33_0.png" alt="Realignment Time">
+            <div class="image-caption">Distribution of realignment times for AQUA</div>
         </div>
 
-        <ul>
+        <!-- <ul>
             <li><strong>Avg time per step:</strong> 5.44 sec (bottlenecked by actuator speed)</li>
             <li><strong>Human $\eta'$ (max):</strong> 95.66 %</li>
             <li><strong>Human $\eta'$ (mean):</strong> 93.19 %</li>
-        </ul>
+        </ul> -->
 
         <h3>Scatter Plots of the Parameter Space</h3>
         <p>The scatter plots below illustrate the distribution of actuator parameters explored during the experiment. Each point represents a unique configuration sampled by the learning algorithm, colored according to the corresponding reward value. These visualizations help reveal which regions of the parameter space yield optimal alignment and highlight the diversity of solutions discovered by AQUA. Clusters of high-reward points indicate effective parameter combinations, while broader distributions reflect the exploration strategy and robustness of the method.</p>
 
         <div class="image-container hero-image">
-            <img src="Final_Plots_files/Final_Plots_43_0.png" alt="Parameter Space">
+            <img src="optics_assets/Final_Plots_43_0.png" alt="Parameter Space">
             <div class="image-caption">Parameter space exploration showing reward landscape and optimal regions</div>
         </div>
 
-        <h3>AQUA: Reset Conditions</h3>
+        <h3>Reset Conditions</h3>
         <p>All resets shown in the paper apply a parameter chosen randomly from the entire given bounds. As seen in AQUA's online learning plot, these mostly return $\eta'=0$. Below we visualise the associated observations and the parameters.</p>
 
-        <div class="image-grid">
+        <div class="image-grid reset-conditions">
             <div class="image-container large-image">
-                <img src="Final_Plots_files/Final_Plots_49_0.png" alt="Reset Conditions 1">
+                <img src="optics_assets/Final_Plots_49_0.png" alt="Reset Conditions 1">
                 <div class="image-caption">Reset condition observations showing initial misalignment states</div>
             </div>
             <div class="image-container large-image">
-                <img src="Final_Plots_files/Final_Plots_49_1.png" alt="Reset Conditions 2">
+                <img src="optics_assets/Final_Plots_49_1.png" alt="Reset Conditions 2">
                 <div class="image-caption">Parameter distributions during random reset conditions</div>
             </div>
         </div>
 
-        <h3>AQUA: Realign Without Retraining</h3>
+        <h3>Realign Without Retraining</h3>
         <p>AQUA models trained online can realign the optical system from random starting points without further retraining, consistently reaching high reward values. This demonstrates strong generalization and resilience to experimental drifts. The figures below show reward trajectories for several realignment episodes using the same trained model, with rapid and reliable convergence.</p>
 
         <div class="image-container hero-image">
-            <img src="Final_Plots_files/Final_Plots_51_0.png" alt="Realign Without Retraining">
+            <img src="optics_assets/Final_Plots_51_0.png" alt="Realign Without Retraining">
             <div class="image-caption">Realignment trajectories without retraining showing robust performance</div>
         </div>
 
-        <h3>AQUA: Visualising Top 5% Rewarded Observations</h3>
+        <h3>Visualising Top 5% Rewarded Observations</h3>
         <div class="image-container hero-image">
-            <img src="Final_Plots_files/Final_Plots_53_0.png" alt="Top 5% Observations">
+            <img src="optics_assets/Final_Plots_53_0.png" alt="Top 5% Observations">
             <div class="image-caption">Top 5% highest-reward observations demonstrating optimal alignment states</div>
         </div>
 
@@ -347,11 +774,11 @@
 
         <div class="image-grid">
             <div class="image-container large-image">
-                <img src="Final_Plots_files/Final_Plots_55_0.png" alt="CEM Sampling 1">
+                <img src="optics_assets/Final_Plots_55_0.png" alt="CEM Sampling 1">
                 <div class="image-caption">Cross Entropy Method sampling distribution evolution</div>
             </div>
             <div class="image-container large-image">
-                <img src="Final_Plots_files/Final_Plots_56_0.png" alt="CEM Sampling 2">
+                <img src="optics_assets/Final_Plots_56_0.png" alt="CEM Sampling 2">
                 <div class="image-caption">CEM convergence showing parameter space refinement</div>
             </div>
         </div>
@@ -359,7 +786,7 @@
         <p>As can be seen here, the reward landscape is different, given different configurations of the optics.</p>
 
         <div class="image-container hero-image">
-            <img src="Final_Plots_files/Final_Plots_57_1.png" alt="Reward Landscape">
+            <img src="optics_assets/Final_Plots_57_1.png" alt="Reward Landscape">
             <div class="image-caption">Reward landscape variations across different optical configurations</div>
         </div>
 
@@ -371,7 +798,7 @@
         <a href="https://www.gymlibrary.dev/" target="_blank">OpenAI Gym</a></p>
 
         <div class="image-container hero-image">
-            <img src="Final_Plots_files/Final_Plots_62_0.png" alt="AQUA vs Stable Baselines">
+            <img src="optics_assets/Final_Plots_62_0.png" alt="AQUA vs Stable Baselines">
             <div class="image-caption">Performance comparison between AQUA and standard model-free RL methods</div>
         </div>
     </div>
@@ -431,7 +858,9 @@ def calculate_reward(self, neg_cost):
     # NOTE: IN BOTH CASES (AQUA & SB) THE OBSERVATION GIVEN IS SAME (TRACE + PARAMS)
     #       AND THE BOUNDS USED ARE ALSO SAME</code></pre>
 
-    <hr>
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); margin: 3rem 0; position: relative;">
+        <div style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); width: 60px; height: 1px; background: linear-gradient(135deg, #6BB6FF, #4A90E2);"></div>
+    </div>
 
     <footer>
         <p><strong>Contact:</strong> <a href="mailto:arindam.saha@anu.edu.au">arindam.saha@anu.edu.au</a></p>
@@ -443,40 +872,134 @@ def calculate_reward(self, neg_cost):
 <button class="scroll-top" onclick="scrollToTop()">↑</button>
 
 <script>
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+// Performance optimized functions
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
-// Show/hide scroll button
-window.addEventListener('scroll', function() {
-    const scrollButton = document.querySelector('.scroll-top');
-    if (window.pageYOffset > 300) {
-        scrollButton.classList.add('visible');
-    } else {
-        scrollButton.classList.remove('visible');
-    }
-});
+// Throttled scroll handler for better performance
+let scrollTimeout;
+const handleScroll = () => {
+    if (scrollTimeout) return;
+    scrollTimeout = setTimeout(() => {
+        const scrollButton = document.querySelector('.scroll-top');
+        if (scrollButton) {
+            scrollButton.classList.toggle('visible', window.pageYOffset > 300);
+        }
+        scrollTimeout = null;
+    }, 16); // ~60fps
+};
 
-// Image lazy loading and fade-in effect
+// Optimized DOMContentLoaded handler
 document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    // Initialize MathJax after DOM is ready
+    if (window.MathJax && window.MathJax.startup) {
+        MathJax.startup.typeset = true;
+        MathJax.typesetPromise().catch(err => console.log('MathJax error:', err));
+    }
+
+    // Performance-optimized intersection observer
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const img = entry.target;
-                img.style.opacity = '1';
-                observer.unobserve(img);
+                requestAnimationFrame(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                });
+                observer.unobserve(entry.target);
             }
+        });
+    }, observerOptions);
+    
+    // Batch DOM operations
+    const sections = document.querySelectorAll('h2, h3, .image-container, .paper-links, .highlight, .specs-grid, table, pre');
+    requestAnimationFrame(() => {
+        sections.forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = `all 0.6s ease ${index * 0.02}s`;
+            observer.observe(section);
         });
     });
 
-    images.forEach(img => {
-        imageObserver.observe(img);
-    });
+    // Optimized image lazy loading with native API fallback
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if ('loading' in HTMLImageElement.prototype) {
+        // Native lazy loading is supported
+        images.forEach(img => {
+            img.addEventListener('load', () => {
+                img.style.opacity = '1';
+            }, { once: true, passive: true });
+        });
+    } else {
+        // Fallback for browsers without native lazy loading
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.addEventListener('load', () => {
+                        img.style.opacity = '1';
+                    }, { once: true, passive: true });
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        images.forEach(img => imageObserver.observe(img));
+    }
+
+    // Event delegation for better performance
+    document.addEventListener('click', function(e) {
+        if (e.target.matches('.scroll-top')) {
+            e.preventDefault();
+            scrollToTop();
+        } else if (e.target.matches('a[href^="#"]')) {
+            e.preventDefault();
+            const target = document.querySelector(e.target.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }, { passive: false });
+
+    // Add scroll listener with throttling
+    window.addEventListener('scroll', handleScroll, { passive: true });
 });
+
+// Preload next page resources on user interaction
+let preloadTriggered = false;
+const preloadResources = () => {
+    if (!preloadTriggered) {
+        preloadTriggered = true;
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'prefetch';
+        preloadLink.href = 'index.html';
+        document.head.appendChild(preloadLink);
+    }
+};
+
+// Trigger preload on first user interaction
+['mouseenter', 'touchstart', 'focus'].forEach(event => {
+    document.addEventListener(event, preloadResources, { once: true, passive: true });
+});
+
+// Register Service Worker for better performance
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered successfully');
+            })
+            .catch(error => {
+                console.log('SW registration failed');
+            });
+    });
+}
 </script>
 
 </body>

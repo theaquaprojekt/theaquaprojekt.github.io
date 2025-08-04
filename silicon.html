@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZMVW9JV3G"></script>
+    <!-- Performance optimizations -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/styles.css" as="style">
+    <link rel="preload" href="optics_assets/Thumbnail.svg" as="image">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Google tag (gtag.js) - Optimized loading -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-7ZMVW9JV3G');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silicon Quantum Dots Control - AQUA Project</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZMVW9JV3G"></script>
+    <title>AQUA Silicon Quantum Dots Control | Automated Qubit Tuning with Simplified RL</title>
     
-    <!-- External CSS -->
-    <link rel="stylesheet" href="assets/styles.css">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AQUA: A Quantized Utility Agent for autonomous silicon quantum dots control. Advanced AI agent for high-fidelity qubit state preparation and measurement using simplified reinforcement learning.">
+    <meta name="keywords" content="AQUA, A Quantized Utility Agent, A Quantised Utility Agent, Simplified RL, Silicon Quantum Dots, Qubit Control, Reinforcement Learning, Automation, Experimental Physics, Quantum Computing, Quantum Control, Machine Learning, Scientific Automation, AI Control Systems">
+    <meta name="author" content="Arindam Saha">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AQUA Silicon Quantum Dots Control | Automated Qubit Tuning">
+    <meta property="og:description" content="Next-generation AI agent for autonomous silicon quantum dots control. AQUA enables high-fidelity qubit operations through simplified reinforcement learning.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://arindam5aha.github.io/aqua/silicon.html">
+    <meta property="og:image" content="https://arindam5aha.github.io/aqua/silicon_assets/generate%20image%20of%20an.png">
+    <meta property="og:site_name" content="The Aqua Project">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AQUA Silicon Quantum Dots Control | Automated Qubit Tuning">
+    <meta name="twitter:description" content="Revolutionary AI agent for autonomous silicon quantum dots control using simplified reinforcement learning. Coming soon.">
+    <meta name="twitter:image" content="https://arindam5aha.github.io/aqua/silicon_assets/generate%20image%20of%20an.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1e3a8a">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="optics_assets/Thumbnail.svg">
+    <link rel="apple-touch-icon" href="optics_assets/Thumbnail.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://arindam5aha.github.io/aqua/silicon.html">
+    
+    <!-- External CSS - Optimized loading -->
+    <link rel="stylesheet" href="assets/styles.css" media="all">
+    
+    <!-- Performance hints -->
+    <link rel="prefetch" href="index.html">
+    <link rel="prefetch" href="cavity.html">
 </head>
 <body>
 
@@ -49,6 +94,73 @@
         <p><strong>Institution:</strong> Australian National University</p>
     </footer>
 </div>
+
+<script>
+// Performance optimized script for silicon.html
+document.addEventListener('DOMContentLoaded', function() {
+    // Fade in animation for content sections
+    const sections = document.querySelectorAll('h1, .paper-links, .highlight, footer');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                requestAnimationFrame(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Set initial state and observe elements
+    requestAnimationFrame(() => {
+        sections.forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(section);
+        });
+    });
+
+    // Preload other pages on user interaction
+    let preloadTriggered = false;
+    const preloadResources = () => {
+        if (!preloadTriggered) {
+            preloadTriggered = true;
+            ['index.html', 'cavity.html'].forEach(href => {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'prefetch';
+                preloadLink.href = href;
+                document.head.appendChild(preloadLink);
+            });
+        }
+    };
+
+    // Trigger preload on first user interaction
+    ['mouseenter', 'touchstart', 'focus'].forEach(event => {
+        document.addEventListener(event, preloadResources, { once: true, passive: true });
+    });
+});
+
+// Register Service Worker for better performance
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered successfully');
+            })
+            .catch(error => {
+                console.log('SW registration failed');
+            });
+    });
+}
+</script>
 
 </body>
 </html>

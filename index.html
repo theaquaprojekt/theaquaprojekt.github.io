@@ -1,21 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZMVW9JV3G"></script>
+    <!-- Performance optimizations -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/landing-styles.css" as="style">
+    <link rel="preload" href="optics_assets/Thumbnail.svg" as="image">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Google tag (gtag.js) - Optimized loading -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-7ZMVW9JV3G');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Aqua Project</title>
-    <link rel="stylesheet" href="assets/landing-styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZMVW9JV3G"></script>
+    <title>AQUA - A Quantized Utility Agent | Autonomous Experimental Control</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AQUA: A Quantized Utility Agent for autonomous experimental control. Simplified RL approach for automating complex optical cavities, quantum devices, and experimental physics systems with minimal human intervention.">
+    <meta name="keywords" content="AQUA, A Quantized Utility Agent, A Quantised Utility Agent, Simplified RL, Reinforcement Learning, Automation, Experimental Physics, Optical Cavity Alignment, Quantum Control, Machine Learning, Autonomous Experiments, Scientific Automation, AI Control Systems">
+    <meta name="author" content="Arindam Saha">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AQUA - A Quantized Utility Agent | Autonomous Experimental Control">
+    <meta property="og:description" content="Revolutionary AI agent for autonomous experimental control using simplified reinforcement learning. Automates optical cavities, quantum devices, and complex experimental physics systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arindam5aha.github.io/aqua/">
+    <meta property="og:image" content="https://arindam5aha.github.io/aqua/optics_assets/Thumbnail.svg">
+    <meta property="og:site_name" content="The Aqua Project">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AQUA - A Quantized Utility Agent | Autonomous Experimental Control">
+    <meta name="twitter:description" content="Revolutionary AI agent for autonomous experimental control using simplified reinforcement learning. Automates optical cavities, quantum devices, and complex experimental physics systems.">
+    <meta name="twitter:image" content="https://arindam5aha.github.io/aqua/optics_assets/Thumbnail.svg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1e3a8a">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="optics_assets/Thumbnail.svg">
+    <link rel="apple-touch-icon" href="optics_assets/Thumbnail.svg">
+    
+    <!-- Canonical URL and Sitemap -->
+    <link rel="canonical" href="https://arindam5aha.github.io/aqua/">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ResearchProject",
+        "name": "AQUA - A Quantized Utility Agent",
+        "description": "Revolutionary AI agent for autonomous experimental control using simplified reinforcement learning. Automates optical cavities, quantum devices, and complex experimental physics systems.",
+        "url": "https://arindam5aha.github.io/aqua/",
+        "author": {
+            "@type": "Person",
+            "name": "Arindam Saha",
+            "affiliation": "Australian National University"
+        },
+        "keywords": ["AQUA", "A Quantized Utility Agent", "Simplified RL", "Reinforcement Learning", "Automation", "Experimental Physics"],
+        "subjectOf": {
+            "@type": "ScholarlyArticle",
+            "name": "Automating experimental optics with sample-efficient machine learning methods",
+            "publisher": "OPTICA",
+            "url": "https://doi.org/10.1364/OPTICA.562734"
+        }
+    }
+    </script>
+    
+    <!-- Optimized CSS loading -->
+    <link rel="stylesheet" href="assets/landing-styles.css" media="all">
+    
+    <!-- Performance hints -->
+    <link rel="prefetch" href="cavity.html">
+    <link rel="prefetch" href="silicon.html">
 </head>
 <body>
+    <!-- Loading screen for better perceived performance -->
+    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 1; transition: opacity 0.5s ease;">
+        <div style="color: #6BB6FF; font-size: 1.2rem; animation: pulse 1.5s infinite;">Loading AQUA...</div>
+    </div>
+    
     <div class="landing-container">
         <!-- Header Section -->
         <div class="header-section">
@@ -27,7 +106,7 @@
                 <p>The ability to automate complex experimental processes is pivotal to scaling advanced technologies. 
                     Modern scientific experiments require precise control of complex systems, from optical cavities to quantum devices. 
                     Traditional control methods rely heavily on manual tuning and domain-specific expertise, creating bottlenecks in research and limiting experimental scalability. 
-                    AQUA: A Quantised Utility Agent, represents a paradigm shift toward autonomous experimental control.</p>
+                    <strong>AQUA: A Quantized Utility Agent</strong>, represents a paradigm shift toward autonomous experimental control.
                 
                 <p>The research vision centres on developing AI agents that can learn to control any experimental setup with minimal human intervention. 
                     By combining generative world models with sample-efficient reinforcement learning, AQUA adapts to new environments, compensates for hardware drift, 
@@ -73,12 +152,12 @@
                 <!-- Hyperlinked Image -->
                 <a href="cavity.html" class="project-link">
                     <div class="project-card">
-                        <img src="Final_Plots_files/Thumbnail.svg" alt="AQUA Project Overview" class="hero-image">
+                        <img src="optics_assets/Thumbnail.svg" alt="AQUA Project Overview" class="hero-image" loading="lazy" decoding="async">
                         <div class="overlay">
-                            <div class="overlay-content">
-                                <p>🔬 Explore Full Research</p>
-                                <p>Click to view detailed results, methodology, and technical specifications</p>
-                                <span class="cta-button">Enter Project →</span>
+                            <div class="overlay-content" style="text-align:center;">
+                                <span style="font-size:2rem;">🔬</span>
+                                <h3 style="margin:0.5em 0;">View Project</h3>
+                                <span class="cta-button">Explore →</span>
                             </div>
                         </div>
                     </div>
@@ -113,7 +192,7 @@
                 <!-- Hyperlinked Image -->
                 <a href="silicon.html" class="project-link">
                     <div class="project-card">
-                        <img src="silicon_assets/generate image of an.png" alt="Generalist Agent Performance" class="hero-image">
+                        <img src="silicon_assets/generate image of an.png" alt="Generalist Agent Performance" class="hero-image" loading="lazy" decoding="async">
                         <div class="overlay">
                             <div class="overlay-content">
                                 <h3>Coming soon ...</h3>
@@ -153,21 +232,92 @@
     </div>
 
     <script>
-        // Add subtle animations
+        // Performance optimizations and animations
         document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen once page is loaded
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }, 300);
+            }
+
+            // Optimized animations with requestAnimationFrame
             const cards = document.querySelectorAll('.info-card, .project-card');
             cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-                card.classList.add('fade-in');
+                requestAnimationFrame(() => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                    card.classList.add('fade-in');
+                });
             });
 
             // Stagger column animations
             const columns = document.querySelectorAll('.project-column');
             columns.forEach((column, index) => {
-                column.style.animationDelay = `${index * 0.3}s`;
-                column.classList.add('slide-in');
+                requestAnimationFrame(() => {
+                    column.style.animationDelay = `${index * 0.3}s`;
+                    column.classList.add('slide-in');
+                });
+            });
+
+            // Preload next pages on hover for instant navigation
+            const projectLinks = document.querySelectorAll('.project-link');
+            projectLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    const href = this.getAttribute('href');
+                    if (href && !document.querySelector(`link[href="${href}"]`)) {
+                        const preloadLink = document.createElement('link');
+                        preloadLink.rel = 'prefetch';
+                        preloadLink.href = href;
+                        document.head.appendChild(preloadLink);
+                    }
+                }, { passive: true });
+            });
+
+            // Optimize external link loading
+            const externalLinks = document.querySelectorAll('.external-link');
+            externalLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Add a small delay for better UX feedback
+                    e.preventDefault();
+                    const href = this.href;
+                    setTimeout(() => {
+                        window.open(href, '_blank', 'noopener,noreferrer');
+                    }, 100);
+                });
             });
         });
+
+        // Critical CSS for loading animation
+        const criticalCSS = `
+            @keyframes pulse {
+                0%, 100% { opacity: 0.7; }
+                50% { opacity: 1; }
+            }
+        `;
+        const style = document.createElement('style');
+        style.textContent = criticalCSS;
+        document.head.appendChild(style);
+
+        // Register Service Worker for better performance
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered successfully');
+                        // Check for updates periodically
+                        setInterval(() => {
+                            registration.update();
+                        }, 60000); // Check every minute
+                    })
+                    .catch(error => {
+                        console.log('SW registration failed');
+                    });
+            });
+        }
     </script>
 </body>
 </html>

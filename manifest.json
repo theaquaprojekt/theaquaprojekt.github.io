@@ -1,0 +1,44 @@
+{
+    "name": "AQUA - A Quantized Utility Agent",
+    "short_name": "AQUA Project",
+    "description": "Revolutionary AI agent for autonomous experimental control using simplified reinforcement learning. Automates optical cavities, quantum devices, and complex experimental physics systems.",
+    "start_url": "/aqua/",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#1e3a8a",
+    "orientation": "portrait-primary",
+    "scope": "/aqua/",
+    "lang": "en",
+    "categories": ["education", "science", "research", "technology"],
+    "icons": [
+        {
+            "src": "optics_assets/Thumbnail.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "optics_assets/Thumbnail.svg",
+            "sizes": "1280x720",
+            "type": "image/svg+xml",
+            "form_factor": "wide",
+            "label": "AQUA Project Overview"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Optical Cavity Research",
+            "short_name": "Cavity",
+            "description": "View detailed optical cavity alignment research",
+            "url": "/aqua/cavity.html"
+        },
+        {
+            "name": "Silicon Qubits",
+            "short_name": "Qubits",
+            "description": "Explore silicon quantum dots control",
+            "url": "/aqua/silicon.html"
+        }
+    ]
+}

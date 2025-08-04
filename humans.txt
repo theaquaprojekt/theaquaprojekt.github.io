@@ -1,0 +1,26 @@
+# The Aqua Project - AQUA: A Quantized Utility Agent
+
+## For Search Engines and Social Media
+
+This website showcases AQUA: A Quantized Utility Agent, a revolutionary AI system for autonomous experimental control using simplified reinforcement learning.
+
+### Key Technologies:
+- Simplified RL (Reinforcement Learning)
+- Autonomous Experimental Control
+- Optical Cavity Alignment
+- Silicon Quantum Dots Control
+- Machine Learning for Scientific Automation
+
+### Research Papers:
+- Published in OPTICA: https://doi.org/10.1364/OPTICA.562734
+- arXiv preprint: https://arxiv.org/abs/2503.14260
+
+### Author:
+Arindam Saha, PhD Researcher at Australian National University (ANU) and UNSW
+
+### Contact:
+- Email: arindam.saha@anu.edu.au
+- LinkedIn: https://www.linkedin.com/in/arindams96/
+
+### Keywords:
+AQUA, A Quantized Utility Agent, A Quantised Utility Agent, Simplified RL, Reinforcement Learning, Automation, Experimental Physics, Optical Cavity Alignment, Quantum Control, Machine Learning, Autonomous Experiments, Scientific Automation, AI Control Systems

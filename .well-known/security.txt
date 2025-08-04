@@ -1,0 +1,8 @@
+Contact: mailto:arindam.saha@anu.edu.au
+Expires: 2026-08-04T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://arindam5aha.github.io/aqua/.well-known/security.txt
+
+# Security contact for the AQUA Project
+# This is a research project website
+# For security issues, please contact the author directly
