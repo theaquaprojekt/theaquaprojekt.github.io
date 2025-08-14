@@ -557,187 +557,35 @@ pre {
     }
 }
 
-@media (max-width: 480px) {
-    .image-caption {
-        padding: 0.5rem 0;
-        font-size: 0.75rem;
-    }
-}
-
-/* Remove special effects */
-.hero-image::before {
-    display: none; /* Remove shine effect */
-}
-
-/* Print styles for clean images */
-@media print {
-    .image-container {
-        margin: 1rem auto;
-        max-width: 100%;
-    }
-    
-    .image-caption {
-        color: #333;
-        border-top: 1px solid #ccc;
-        padding: 0.5rem 0;
-    }
-}
-
-/* Enhanced Footer */
-footer {
-    text-align: center;
-    margin-top: 60px;
-    padding: 30px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    color: var(--text-primary);
-    box-shadow: 0 8px 32px var(--shadow-dark);
-    border: 1px solid var(--border-color);
-    border-top: 2px solid var(--accent-blue-light);
-}
-
-/* Enhanced Links */
-a {
-    color: var(--accent-blue-light);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    font-weight: 300;
-}
-
-a:hover {
-    color: var(--accent-blue);
-    text-shadow: 0 0 8px rgba(107, 182, 255, 0.2);
-}
-
-a:visited {
-    color: var(--accent-purple);
-}
-
-/* Scroll-to-top button */
-.scroll-top {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 40px;
-    height: 40px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    color: var(--text-primary);
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 16px var(--shadow-dark);
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-    font-weight: 300;
-}
-
-.scroll-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--shadow-dark);
-    background: var(--hover-bg);
-    border-color: var(--border-light);
-}
-
-/* Loading animation for images */
-img {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    body {
-        padding: 15px 10px;
-        font-size: 15px;
-    }
-    
-    .top-nav {
-        padding: 0.6rem 0;
-    }
-    
-    .top-nav > * {
-        margin: 0 1rem;
-    }
-    
-    .top-nav .back-link {
-        margin-left: 1rem;
-    }
-    
-    .top-nav .nav-links {
-        margin-right: 1rem;
-    }
-    
-    .nav-container {
-        padding: 0 1rem;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    h2 {
-        font-size: 1.3rem;
-        margin-left: 0;
-        padding-left: 12px;
-    }
-    
-    .specs-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-    
-    .spec-item, .paper-links, .highlight {
-        padding: 16px;
-    }
-    
-    img {
-        border-radius: 6px;
-    }
-    
-    table {
-        font-size: 13px;
-        border-radius: 6px;
-    }
-    
-    th, td {
-        padding: 10px 12px;
-    }
-    
-    pre {
-        padding: 12px;
-        border-radius: 6px;
-        font-size: 12px;
-    }
-    
-    .scroll-top {
-        bottom: 20px;
-        right: 20px;
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
-    }
+@media (max-width: 600px) {
+  html, body {
+    height: 100vh;
+    overflow: auto;
+  }
+  .content-wrapper {
+    padding: 0.5rem !important;
+    width: 100% !important;
+  }
+  .info-grid,
+  .two-column-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1.2rem !important;
+  }
+  .project-column,
+  .info-card,
+  .paper-links,
+  .highlight {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem !important;
+  }
+  .top-nav {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0.5rem 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
