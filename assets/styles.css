@@ -415,10 +415,9 @@ img:hover {
     border: none;
     border-radius: 0;
     transition: all 0.6s ease;
-    opacity: 0;
+    opacity: 1;
     object-fit: contain;
     object-position: center;
-    /* Removed: background, padding */
 }
 
 .image-container:hover img {
