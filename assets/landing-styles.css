@@ -453,14 +453,21 @@ body {
     max-width: none;
     padding: 0;
   }
-  .info-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
+  .info-grid,
   .two-column-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 2rem !important;
+    width: 100% !important;
+    gap: 1.2rem !important;
+  }
+  .project-column {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem !important;
+  }
+  .info-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem !important;
   }
 }
