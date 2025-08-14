@@ -481,6 +481,29 @@
         .matched-height-plots .image-container {
             height: auto;
         }
+        
+        @media (max-width: 600px) {
+            .image-container,
+            .image-container img {
+                width: 100vw !important;
+                max-width: 100vw !important;
+                height: auto !important;
+                max-height: none !important;
+                min-height: 0 !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                display: block !important;
+                margin: 0 auto !important;
+                border-radius: 0 !important;
+                padding: 0 !important;
+            }
+            .hero-image,
+            .large-image,
+            .medium-image {
+                height: auto !important;
+                min-height: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -503,7 +526,7 @@
     </div>
 
     <div class="paper-links">
-        <p><strong>Paper Link:</strong> <a href="https://arxiv.org/abs/2503.14260" target="_blank">arXiv:2503.14260</a><br>
+        <p><strong>Paper Link:</strong> <a href="https://doi.org/10.1364/OPTICA.562734" target="_blank">Optica</a><br>
         <strong>Contact:</strong> <a href="mailto:arindam.saha@anu.edu.au">arindam.saha@anu.edu.au</a></p>
     </div>
 
