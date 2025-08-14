@@ -439,3 +439,18 @@ body {
     scrollbar-width: thin;
     scrollbar-color: var(--border-color) var(--bg-primary);
 }
+
+@media (max-width: 600px) {
+  html, body {
+    height: 100vh;
+    overflow: auto;
+  }
+  .landing-container {
+    transform: scale(0.85);
+    transform-origin: top center;
+    min-height: 100vh;
+    width: 100vw;
+    max-width: none;
+    padding: 0;
+  }
+}
