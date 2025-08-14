@@ -453,4 +453,14 @@ body {
     max-width: none;
     padding: 0;
   }
+  .info-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .two-column-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
 }
