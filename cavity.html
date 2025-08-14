@@ -164,12 +164,12 @@
         .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 12px;
-            transition: all 0.3s ease;
             object-fit: contain;
             object-position: center;
             display: block;
             margin: 0 auto;
+            border-radius: 8px;
+            padding: 0;
         }
         
         /* Matched height for most images */
@@ -484,27 +484,26 @@
         
         @media (max-width: 600px) {
             .image-container {
-                width: 100% !important;
-                min-height: 0 !important;
-                padding: 0.5rem !important;
-                border-radius: 8px !important;
+                width: 100%;
+                min-height: 0;
+                padding: 0.5rem;
+                border-radius: 8px;
             }
             .image-container img {
-                max-width: 100% !important;
-                height: auto !important;
-                max-height: 400px !important;
-                object-fit: contain !important;
-                object-position: center !important;
-                display: block !important;
-                margin: 0 auto !important;
-                border-radius: 8px !important;
-                padding: 0 !important;
+                max-width: 100%;
+                height: auto;
+                object-fit: contain;
+                object-position: center;
+                display: block;
+                margin: 0 auto;
+                border-radius: 8px;
+                padding: 0;
             }
             .hero-image,
             .large-image,
             .medium-image {
-                height: auto !important;
-                min-height: 0 !important;
+                height: auto;
+                min-height: 0;
             }
         }
     </style>
