@@ -665,65 +665,6 @@
         </div>
     </div>
 
-    <!-- <h3>Model Specs</h3>
-
-    <div class="specs-grid">
-        <div class="spec-item">
-            <strong>Observation size:</strong> 1024 (raw data, no offset correction; continuous)
-        </div>
-        <div class="spec-item">
-            <strong>Action size:</strong> 6 (full bounds as previously described; continuous)
-        </div>
-        <div class="spec-item">
-            <strong>Hidden sizes:</strong> encoder: 64, prediction: 64, policy: 512
-        </div>
-        <div class="spec-item">
-            <strong>Number of hidden layers:</strong> 2
-        </div>
-        <div class="spec-item">
-            <strong>Latent size:</strong> 32
-        </div>
-        <div class="spec-item">
-            <strong>Activation:</strong> leakyReLU
-        </div>
-        <div class="spec-item">
-            <strong>Input sizes:</strong><br>
-            • encoder: 1024 + 6<br>
-            • prediction: 1024 + 6<br>
-            • policy: 32 + 6<br>
-            (6 for scaled parameters, used optionally with dropouts)
-        </div>
-        <div class="spec-item">
-            <strong>Optimizer:</strong> Adam
-        </div>
-        <div class="spec-item">
-            <strong>Learning rate:</strong> 0.0001
-        </div>
-        <div class="spec-item">
-            <strong>Batch size:</strong> encoder: 50, prediction: 50, policy: 200
-        </div>
-        <div class="spec-item">
-            <strong>Gradient clipping:</strong> 1.0
-        </div>
-        <div class="spec-item">
-            <strong>Dropout:</strong> 0.2
-        </div>
-        <div class="spec-item">
-            <strong>Weights initializer:</strong> kaiming_uniform
-        </div>
-        <div class="spec-item">
-            <strong>PyTorch version:</strong> 2.1.2
-        </div>
-        <div class="spec-item">
-            <strong>CUDA version:</strong> 12.1
-        </div>
-    </div>
-
-    <div class="highlight">
-        <strong>Total trainable parameters:</strong> 558,416<br>
-        <em>(Latest version: 10x fewer parameters, improved generalization and training times)</em>
-    </div> -->
-
     <!-- Continue with matched heights for remaining plots -->
     <div class="matched-height-plots">
         <h3>Analyse AQUA Performance on Experiment</h3>
@@ -811,7 +752,7 @@
 
         <h3>Compare AQUA with Standard Model-Free RL (Stable Baselines) in Cavity Simulation</h3>
         <p>It is to be noted that the simulations are free of all kinds of drifts and one can expect to get similar rewards for repeat measurements.<br>
-        Thanks to Viktoria-S. Schmiesing for help with setting up SB3 and its reward function and Aaron Tranter for the simulation.<br>
+        Thanks to Viktoria-S. Schmiesing for help with setting up SB3 and its reward function.<br>
         For more information on the simulation environment visit: <a href="https://www.gwoptics.org/pykat/" target="_blank">GW Optics</a><br>
         <a href="https://stable-baselines.readthedocs.io/en/master/" target="_blank">Stable Baselines</a><br>
         <a href="https://www.gymlibrary.dev/" target="_blank">OpenAI Gym</a></p>
