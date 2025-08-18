@@ -16,7 +16,7 @@ Disallow: *.md
 Disallow: *.workspace
 
 # Sitemap location
-Sitemap: https://arindam5aha.github.io/aqua/sitemap.xml
+Sitemap: https://theaquaproject.github.io/sitemap.xml
 
 # Crawl-delay (optional - sets delay between requests)
 Crawl-delay: 1
