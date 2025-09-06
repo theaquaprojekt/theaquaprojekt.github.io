@@ -1,8 +1,8 @@
 title: "The Aqua Project"
 description: "Building a generalist control agent for every experiment on the pa"
 remote_theme: pages-themes/midnight@v0.2.0
-baseurl: "/aqua"
-url: "https://arindam5aha.github.io"
+baseurl: ""
+url: "https://theaquaproject.github.io"
 
 # Author information
 author:
@@ -12,7 +12,7 @@ author:
 
 # GitHub Pages settings
 github:
-  repository_url: "https://github.com/arindam5aha/aqua"
+  repository_url: "https://github.com/theaquaprojekt/theaquaprojekt.github.io"
 
 # Social links
 social:
@@ -25,7 +25,7 @@ nav_links:
     url: "https://arxiv.org/abs/2503.14260"
     external: true
   - title: "GitHub"
-    url: "https://github.com/arindam5aha/aqua"
+  url: "https://github.com/theaquaprojekt/theaquaprojekt.github.io"
     external: true
   - title: "Contact"
     url: "mailto:arindam.saha@anu.edu.au"

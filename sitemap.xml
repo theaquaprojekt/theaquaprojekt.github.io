@@ -6,7 +6,7 @@
 
     <!-- Main Homepage -->
     <url>
-        <loc>https://arindam5aha.github.io/aqua/</loc>
+    <loc>https://theaquaproject.github.io/</loc>
         <lastmod>2025-08-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
     <!-- Optical Cavity Research Page -->
     <url>
-        <loc>https://arindam5aha.github.io/aqua/cavity.html</loc>
+    <loc>https://theaquaproject.github.io/cavity.html</loc>
         <lastmod>2025-08-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
     <!-- Silicon Quantum Dots Page -->
     <url>
-        <loc>https://arindam5aha.github.io/aqua/silicon.html</loc>
+    <loc>https://theaquaproject.github.io/silicon.html</loc>
         <lastmod>2025-08-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -30,7 +30,7 @@
 
     <!-- 404 Page (optional, but good for completeness) -->
     <url>
-        <loc>https://arindam5aha.github.io/aqua/404.html</loc>
+    <loc>https://theaquaproject.github.io/404.html</loc>
         <lastmod>2025-08-04</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.1</priority>
