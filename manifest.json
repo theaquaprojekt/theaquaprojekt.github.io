@@ -1,7 +1,7 @@
 {
     "name": "AQUA - A Quantized Utility Agent",
-    "short_name": "AQUA Project",
-    "description": "Revolutionary AI agent for autonomous experimental control using simplified reinforcement learning. Automates optical cavities, quantum devices, and complex experimental physics systems.",
+    "short_name": "The Aqua Projekt",
+    "description": "AI for discovery and research automation.",
     "start_url": "/aqua/",
     "display": "standalone",
     "background_color": "#0a0a0f",
@@ -24,12 +24,12 @@
             "sizes": "1280x720",
             "type": "image/svg+xml",
             "form_factor": "wide",
-            "label": "AQUA Project Overview"
+            "label": "Project Overview"
         }
     ],
     "shortcuts": [
         {
-            "name": "Optical Cavity Research",
+            "name": "Optics Research",
             "short_name": "Cavity",
             "description": "View detailed optical cavity alignment research",
             "url": "/aqua/cavity.html"
