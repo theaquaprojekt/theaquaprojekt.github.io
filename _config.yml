@@ -1,8 +1,8 @@
 title: "The AQUA Project"
 description: "Automating Experimental Optics with Sample Efficient Machine Learning Methods"
 remote_theme: pages-themes/midnight@v0.2.0
-baseurl: "/aqua"
-url: "https://arindam5aha.github.io"
+baseurl: ""
+url: "https://theaquaproject.github.io"
 
 # Author information
 author:
@@ -16,7 +16,7 @@ social:
 
 # GitHub Pages settings
 github:
-  repository_url: "https://github.com/arindam5aha/aqua"
+  repository_url: "https://github.com/theaquaprojekt/theaquaprojekt.github.io"
 
 # Jekyll settings - keep minimal for GitHub Pages
 plugins:
