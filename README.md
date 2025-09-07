@@ -4,7 +4,7 @@
 
 💧Visit Project Page: [The Aqua Projekt](https://theaquaprojekt.github.io)
 
-This repository contains the source files for the Aqua project hosted on GitHub Pages. The Aqua project focuses on automating experimental optics using sample-efficient machine learning methods.
+This repository contains the source files for the Aqua project hosted on GitHub Pages.
 
 ## Project Structure
 
